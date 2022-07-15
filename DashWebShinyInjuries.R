@@ -99,7 +99,11 @@ credentials <- data.frame(
 #     Ablated                   #
 #################################
 #:%s/^\(.*\)$/"\1",/
-abl <- read_graph(file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Ablated_vs_Sham.graphml",
+#cat NN | tr "\n" " "
+#excel to paste and make the final command
+#
+abl <- read_graph(file = "D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Ablated_vs_Sham.graphml",
+                  #file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Ablated_vs_Sham.graphml",
                   format = "graphml")
 
 npp <- c("GO:1901293", "GO:0072522", "GO:0006163", "GO:0022900", "GO:0042775", "GO:0006123", "GO:1903715", "GO:0046040", "GO:0034033", "GO:0033866", "GO:0015986", "GO:0006085", "GO:0044272", "GO:0072521", "GO:0043467", "GO:0072350", "GO:0006188", "GO:0043648", "GO:0071616", "GO:0009205", "GO:0042773", "GO:0009201", "GO:0006084", "GO:0009142", "GO:0019646", "GO:0034032", "GO:0006753", "GO:0019693", "GO:0006790", "GO:0033865", "GO:0009145", "GO:0046390", "GO:0009127", "GO:0009199", "GO:0006164", "GO:0009152", "GO:0035383", "GO:0033875", "GO:0009060", "GO:0019359", "GO:0006637", "GO:0009260", "GO:0015980", "GO:0009124", "GO:1902600", "GO:0006167", "GO:0006099", "GO:0009144", "GO:0009259", "GO:0006107", "GO:0006086", "GO:0015985", "GO:0009165", "GO:0045333", "GO:0034030", "GO:0046034", "GO:0035384", "GO:0042776", "GO:0009156", "GO:0006120", "GO:0006754", "GO:0022904", "GO:0046033", "GO:0009206", "GO:0006090", "GO:0009117", "GO:0006119", "GO:0009141", "GO:0043457", "GO:0009168")
@@ -350,7 +354,8 @@ vertex_attr(abl)$Clusters <- unlist(AA_Clusters)
 #################################
 #  Resection                    #
 #################################
-amp <- read_graph(file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Amputation_vs_Sham.graphml",
+amp <- read_graph(file = "D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Amputation_vs_Sham.graphml",
+                  #file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Amputation_vs_Sham.graphml",
                   format = "graphml")
 
 pim <- c("GO:0001819", "GO:0002263", "GO:0002274", "GO:0002275", "GO:0002279", "GO:0002366", "GO:0002420", "GO:0002444", "GO:0002448", "GO:0002697", "GO:0002699", "GO:0002700", "GO:0002702", "GO:0002703", "GO:0002705", "GO:0002717", "GO:0002718", "GO:0002858", "GO:0002886", "GO:0031343", "GO:0032418", "GO:0033003", "GO:0033005", "GO:0033006", "GO:0033008", "GO:0043299", "GO:0043300", "GO:0043302", "GO:0043303", "GO:0043304", "GO:0043306", "GO:0045576", "GO:0045954", "GO:0051656")
@@ -540,7 +545,8 @@ vertex_attr(amp)$Clusters <- unlist(AA_Clusters)
 #################################
 #   Uninjured                   #
 #################################
-unj <- read_graph(file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Uninjured_vs_Sham.graphml",
+unj <- read_graph(file = "D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Uninjured_vs_Sham.graphml",
+                  #file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Uninjured_vs_Sham.graphml",
                   format = "graphml")
 
 
@@ -574,7 +580,8 @@ vertex_attr(unj)$Clusters <- unlist(AA_Clusters)
 #################################
 #     Core regeneration         #
 #################################
-core <- read_graph(file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/heart_regeneration_core_mm_fil_cleaned_Abl_Sham__gobp.graphml",
+core <- read_graph(file = "D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/heart_regeneration_core_mm_fil_cleaned_Abl_Sham__gobp.graphml",
+                   #file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/heart_regeneration_core_mm_fil_cleaned_Abl_Sham__gobp.graphml",
                    format = "graphml")
 
 # vertex_attr(core)$name
@@ -703,11 +710,33 @@ AA_Clusters <- lapply(seq_along(vertex_attr(core)$AA),function(n) {
 vertex_attr(core)$Clusters <- unlist(AA_Clusters)
 
 
+unj_counts <- read.table(file = "D:/Phd/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/dr2mmus/Uninjured_vs_Sham_mouse_enriched_all_clean.txt",header = TRUE,sep = "\t")
+abl_counts <- read.table(file = "D:/Phd/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/dr2mmus/Ablated__vs_Uninjured_mouse_enriched_all_clean.txt",header = TRUE,sep = "\t")
+amp_counts <- read.table(file = "D:/Phd/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/dr2mmus/Amputation_vs_Sham_mouse_enriched_all_clean.txt",header = TRUE,sep = "\t")
+cry_counts <- read.table(file = "D:/Phd/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/dr2mmus/Cryonjury_vs_Sham_mouse_enriched_all_clean.txt",header = TRUE,sep = "\t")
+s4c <- read.table(file = "D:/PhD/Projects/prsa/BatchCorrected/colData_s4c.txt",header = TRUE,sep = "\t")
 
 
+sham_counts <- cry_counts[,c(rownames(s4c %>% filter(Condition=="Sham")),"MGI_Symbol")]
+#head(abl_counts[,c(rownames(s4c %>% filter(Condition=="Sham")),"MGI_Symbol")])
+#head(amp_counts[,c(rownames(s4c %>% filter(Condition=="Sham")),"MGI_Symbol")])
 
 
-enrich_go_bo_df <- read.table("/media/marius/Samsung_T5/Phd/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/setDiffConditions/GOBP/Mmus_clean_gobp_enrichment_v2_abl_sham.txt",sep = "\t",header = TRUE)
+core_counts <- cbind(
+  cry_counts[,c(rownames(s4c %>% filter(Condition=="Cryoinjury")),"MGI_Symbol")],
+  amp_counts[,c(rownames(s4c %>% filter(Condition=="Amputation")),"MGI_Symbol")],
+  abl_counts[,c(rownames(s4c %>% filter(Condition=="Ablated")),"MGI_Symbol")],
+  unj_counts[,c(rownames(s4c %>% filter(Condition=="Uninjured")),"MGI_Symbol")],
+  sham_counts)
+
+
+enrich_go_bo_df <- read.table("D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/setDiffConditions/GOBP/Mmus_clean_gobp_enrichment_v2_abl_sham.txt",
+                              #"/media/marius/Samsung_T5/Phd/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/setDiffConditions/GOBP/Mmus_clean_gobp_enrichment_v2_abl_sham.txt",
+                              sep = "\t",header = TRUE)
+
+
+core_reg <- read.table("D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/coreRegeneration/GEM/heart_regeneration_core_mm_fil_cleaned_Abl_Sham__gobp.txt",sep = "\t",header = TRUE)
+
 
 #enrich_go_bo_df |> group_by(Group) |> filter(Group == "Amputation")
 
@@ -730,63 +759,80 @@ ui <- secure_app(head_auth = tags$script(inactivity),
                                dashboardSidebar(width = 300,
                                                 sidebarMenu(
                                                   menuItem("Home",tabName = "home",icon = icon("home")),
-                                                  menuItem("Dashboard",tabName = "dashboard",icon = icon("apple",lib = "glyphicon")),
-                                                  menuItem("Amputation vs Sham",tabName = "amputated", icon = icon("map-marker",lib = "glyphicon")),#,icon = icon("calendar",lib = "glyphicon")),
-                                                  menuItem("Ablation vs Sham",tabName = "ablated",icon = icon("map-marker",lib = "glyphicon")),
-                                                  menuItem("Cryoiunjury vs Sham",tabName = "cryoinjured",icon = icon("map-marker",lib = "glyphicon")),
-                                                  menuItem("Uninjured vs Sham",tabName = "uninjured",icon = icon("map-marker",lib = "glyphicon")),
-                                                  menuItem("Heart core regeneration common genes ",tabName = "heartcore",icon = icon("map-marker",lib = "glyphicon")),
+                                                  #menuItem("Dashboard",tabName = "dashboard",icon = icon("apple",lib = "glyphicon")),
+                                                  menuItem("Resection vs Sham",tabName = "amputated", icon = icon("scissors",lib = "glyphicon")),#,icon = icon("calendar",lib = "glyphicon")),
+                                                  menuItem("Ablation vs Sham",tabName = "ablated",icon = icon("tag",lib = "glyphicon")),
+                                                  #menuItem("Cryoiunjury vs Sham",tabName = "cryoinjured",icon = icon("map-marker",lib = "glyphicon")),
+                                                  menuItem("Uninjured vs Sham",tabName = "uninjured",icon = icon("ok",lib = "glyphicon")),
+                                                  menuItem("Heart core regeneration common genes ",tabName = "heartcore",icon = icon("heart-empty",lib = "glyphicon")),
                                                   menuItem("About",tabName = "about",icon = icon("thumbtack"))
                                                 )),
                                dashboardBody(
                                  tabItems(
                                    tabItem(tabName = "home",
                                            #home section and markdown
-                                           includeMarkdown("/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/RShinyCode/ShinnyNetworksGOBP/www/markdown_home.md")),
+                                           includeMarkdown("D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/RShinyCode/ShinnyNetworksGOBP/www/markdown_home.md")),
+                                             #"/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/RShinyCode/ShinnyNetworksGOBP/www/markdown_home.md")),
                                    
-                                   #next tab
-                                   tabItem(tabName = "dashboard",
-                                           fluidRow(
-                                             column(width = 4,valueBoxOutput(width = 12,outputId = "blue_value_box")),
-                                             column(width = 4,valueBoxOutput(width = 12,outputId = "purple_value_box")),
-                                             column(width = 4,valueBoxOutput(width = 12,outputId = "red_value_box")),
-                                           ),
-                                           fluidRow(
-                                             column(width = 4,valueBoxOutput(width = 12,outputId = "top_landing_spot1")),
-                                             column(width = 4,valueBoxOutput(width = 12,outputId = "top_landing_spot2")),
-                                             column(width = 4,valueBoxOutput(width = 12,outputId = "top_landing_spot3")),
-                                             
-                                           ),
-                                           fluidRow(
-                                             column(width = 4,valueBoxOutput(width = 12,outputId = "top_start_spot1")),
-                                             column(width = 4,valueBoxOutput(width = 12,outputId = "top_start_spot2")),
-                                             column(width = 4,valueBoxOutput(width = 12,outputId = "top_start_spot3")),
-                                           )),
-                                   
-                                   
+                                   # #next tab
+                                   # tabItem(tabName = "dashboard",
+                                   #         fluidRow(
+                                   #           column(width = 4,valueBoxOutput(width = 12,outputId = "blue_value_box")),
+                                   #           column(width = 4,valueBoxOutput(width = 12,outputId = "purple_value_box")),
+                                   #           column(width = 4,valueBoxOutput(width = 12,outputId = "red_value_box")),
+                                   #           ),
+                                   #         fluidRow(
+                                   #           column(width = 4,valueBoxOutput(width = 12,outputId = "top_landing_spot1")),
+                                   #           column(width = 4,valueBoxOutput(width = 12,outputId = "top_landing_spot2")),
+                                   #           column(width = 4,valueBoxOutput(width = 12,outputId = "top_landing_spot3")),
+                                   #           ),
+                                   #         fluidRow(
+                                   #           column(width = 4,valueBoxOutput(width = 12,outputId = "top_start_spot1")),
+                                   #           column(width = 4,valueBoxOutput(width = 12,outputId = "top_start_spot2")),
+                                   #           column(width = 4,valueBoxOutput(width = 12,outputId = "top_start_spot3")),
+                                   #           )
+                                   #         ),
+                                   # 
                                    #next tab
                                    #widths
                                    #https://stackoverflow.com/questions/70689513/how-to-have-shiny-dashboard-box-fill-the-entire-width-of-my-dashbaord
                                    #next tab
                                    tabItem(tabName = "amputated",
-                                           #map part
-                                           visNetworkOutput(outputId = "amputated_net",width = "100%", height = "1000px") %>% withSpinner()),
-                                   
+                                           fluidRow(
+                                             column(width = 12, textOutput("verb_amp")),#tags$head(tags$style("#text1{color: red;font-size: 20px;font-style: italic;}")) %>% withSpinner()),
+                                             column(width = 12, visNetworkOutput(outputId = "amputated_net",width = "auto",height = "600px") %>% withSpinner()),
+                                             column(width = 12, dataTableOutput("goTable_amp", width = "auto",height = "auto") %>% withSpinner()),
+                                             column(width = 12,valueBoxOutput(width = 12,outputId = "genes_go_amp") %>% withSpinner())
+                                             #column(width = 12, plotOutput(width = 8,height = 8,outputId = "amphm") %>% withSpinner())
+                                             )
+                                           ),
+                                   #next tab
                                    tabItem(tabName = "ablated",
-                                           #map part
-                                           visNetworkOutput(outputId = "ablated_net",width = "100%", height = "1000px") %>% withSpinner()),
-                                   
-                                  tabItem(tabName = "uininjured",
-                                           #map part
-                                           visNetworkOutput(outputId = "uninjured_net",width = "100%", height = "1000px") %>% withSpinner()),
-                                           # plotOutput(outputId = "uininjured_net",width = "1980px", height = "1000px")),
-                                   
-                                   
+                                           fluidRow(
+                                             column(width = 12, textOutput("verb_abl")),#tags$head(tags$style("#text1{color: red;font-size: 20px;font-style: italic;}")) %>% withSpinner()),
+                                             column(width = 12, visNetworkOutput(outputId = "ablated_net",width = "auto",height = "600px") %>% withSpinner()),
+                                             column(width = 12, dataTableOutput("goTable_abl", width = "auto",height = "auto") %>% withSpinner()),
+                                             column(width = 12,valueBoxOutput(width = 12,outputId = "genes_go_abl") %>% withSpinner())
+                                             )
+                                           ),
+                                   #next tab
+                                   tabItem(tabName = "uninjured",
+                                           fluidRow(
+                                             column(width = 12, textOutput("verb_unj")),#tags$head(tags$style("#text1{color: red;font-size: 20px;font-style: italic;}")) %>% withSpinner()),
+                                             column(width = 12, visNetworkOutput(outputId = "uninjured_net",width = "auto",height = "600px") %>% withSpinner()),
+                                             column(width = 12, dataTableOutput("goTable_unj", width = "auto",height = "auto") %>% withSpinner()),
+                                             column(width = 12,valueBoxOutput(width = 12,outputId = "genes_go_unj") %>% withSpinner())
+                                             )
+                                           ),
+                                   #next tab
                                    tabItem(tabName = "heartcore",
-                                           visNetworkOutput(outputId = "heartcore_net",width = "100%", height = "1000px") %>% withSpinner()),
-                                           #map part
-                                           # plotOutput(outputId = "heartcore_net",width = "1980px", height = "1000px",hover = TRUE)),
-                                   
+                                           fluidRow(
+                                             column(width = 12, textOutput("verb_core") %>% withSpinner()),
+                                             column(width = 12, visNetworkOutput(outputId = "heartcore_net",width = "auto",height = "600px") %>% withSpinner()),
+                                             column(width = 12, dataTableOutput("goTable_core", width = "auto", height = "auto") %>% withSpinner()),
+                                             column(width = 12,valueBoxOutput(width = "auto",outputId = "genes_go_core") %>% withSpinner())
+                                             )
+                                           ),
                                    #next tab
                                    tabItem(tabName = "about",
                                            h2("Created and scractched by: "),
@@ -809,18 +855,83 @@ server <- function(input, output, session) {
   
   
   output$amputated_net = renderVisNetwork({
-    visNetwork::visIgraph(amp) |>  visOptions(selectedBy = "Clusters") |>   visInteraction(navigationButtons = TRUE) |> visNetwork::visLayout(randomSeed = 123456)
-    
+    visNetwork::visIgraph(amp) |>
+      visOptions(selectedBy = "Clusters") |>
+      visInteraction(navigationButtons = TRUE) |>
+      visNetwork::visLayout(randomSeed = 123456) |>
+      visEvents(select = "function(nodes) {Shiny.onInputChange('current_node_id', nodes.nodes);;}")
   })
   
+  output$goTable_amp <- renderDataTable({
+    enrich_go_bo_df %>%
+      group_by(Group) %>%
+      filter(Group == "Amputation") %>%
+      filter(ID %in% vertex_attr(amp)$name[vertex_attr(amp)$name == input$current_node_id])
+  })
+  
+  observeEvent(input$current_node_id, {
+    visNetworkProxy("amputated_net") %>%
+      visGetNodes()
+  })
+  
+  output$verb_amp <- renderText({ paste0("Selected GO:BP is: ",input$current_node_id)
+  })
+  
+  output$genes_go_amp <- renderValueBox(valueBox(value = tags$p(enrich_go_bo_df %>% group_by(Group) %>% filter(Group == "Amputation") %>% filter(ID %in% vertex_attr(amp)$name[vertex_attr(amp)$name == input$current_node_id]) %>% pull(geneID) %>% gsub(pattern = "/",replacement=","),style = "font-size: 35%;", style ="color : black"), color="fuchsia", subtitle = "Genes Involved in the GO:BP"))
+
+  
+  # #add heatmap of the genes in the GO:BP
+  # require(heatmaply)
+  # require(gridExtra)
+  # require(gridGraphics)
+  # require(grid)
+  # output$amphm <- renderPlot({
+  #   #par(mar=c(1, 1, 1, 1)) # bottom, left, top, right
+  #   par(mfcol=c(1,1),mai=c(0.2,0.2,0.2,0))
+  #   #heatmaply(x = amp_mat,Rowv = NA,Colv = NA,na.rm = TRUE,scale = "row")
+  #   heatmap(x = amp_mat,Rowv = NA,Colv = NA,na.rm = TRUE,scale = "row")
+  #   genes_amp <- enrich_go_bo_df %>% group_by(Group) %>% filter(Group == "Amputation") %>% filter(ID %in% vertex_attr(amp)$name[vertex_attr(amp)$name == input$current_node_id]) %>% pull(geneID) %>% gsub(pattern = "/",replacement=",")  %>% strsplit(split = ",") %>% unlist()
+  #   #names(amp_counts)
+  #   amp_counts2 <- as.data.frame(amp_counts[,c(rownames(s4c %>% filter(Condition %in% c("Amputation","Sham"))),"MGI_Symbol")])
+  #   amp_counts_genes <- amp_counts2 %>% filter(MGI_Symbol %in% genes_amp) %>% distinct(MGI_Symbol,.keep_all = TRUE)
+  #   amp_mat <- as.matrix(amp_counts_genes[,-c(length(amp_counts_genes))])
+  #   rownames(amp_mat) <- amp_counts_genes$MGI_Symbol
+  #   #col_lab <- s4c %>% filter(Condition %in% c("Amputation","Sham")) %>% pull(Condition)
+  # })
+  
+  
+    
   output$ablated_net = renderVisNetwork({
-    visNetwork::visIgraph(abl) |>  visOptions(selectedBy = "Clusters") |>   visInteraction(navigationButtons = TRUE) |> visNetwork::visLayout(randomSeed = 123456)
-    
+    visNetwork::visIgraph(abl) |>
+      visOptions(selectedBy = "Clusters") |>
+      visInteraction(navigationButtons = TRUE) |>
+      visNetwork::visLayout(randomSeed = 123456) |> 
+      visEvents(select = "function(nodes) {Shiny.onInputChange('current_node_id', nodes.nodes);;}")
   })
   
+  output$goTable_abl <- renderDataTable({
+    enrich_go_bo_df %>%
+      group_by(Group) %>%
+      filter(Group == "Ablated") %>%
+      filter(ID %in% vertex_attr(abl)$name[vertex_attr(abl)$name == input$current_node_id])
+  })
+  
+  observeEvent(input$current_node_id, {
+    visNetworkProxy("ablated_net") %>%
+      visGetNodes()
+  })
+  
+  output$verb_abl <- renderText({ paste0("Selected GO:BP is: ",input$current_node_id)
+  })
+  
+  output$genes_go_abl <- renderValueBox(valueBox(value = tags$p(enrich_go_bo_df %>% group_by(Group) %>% filter(Group == "Ablated") %>% filter(ID %in% vertex_attr(abl)$name[vertex_attr(abl)$name == input$current_node_id]) %>% pull(geneID) %>% gsub(pattern = "/",replacement=","),style = "font-size: 35%;", style ="color : black"), color="orange", subtitle = "Genes Involved in the GO:BP"))
   
   output$uninjured_net = renderVisNetwork({
-    visNetwork::visIgraph(unj) |>  visOptions(selectedBy = "Clusters") |>   visInteraction(navigationButtons = TRUE) |> visNetwork::visLayout(randomSeed = 123456)
+    visNetwork::visIgraph(unj) |>
+      visOptions(selectedBy = "Clusters") |>
+      visInteraction(navigationButtons = TRUE) |>
+      visNetwork::visLayout(randomSeed = 123456) |>
+      visEvents(select = "function(nodes) {Shiny.onInputChange('current_node_id', nodes.nodes);;}")
     # l <- layout_with_fr(unj)
     # plot.igraph(unj,edge.color="green",layout=l,vertex.color = "white",vertex.size=8,
     #             mark.groups = groups_id,
@@ -834,26 +945,64 @@ server <- function(input, output, session) {
     #        text.col = "black", horiz = FALSE)
   })
   
-  # output$heartcore_net = renderPlot({
+  output$goTable_unj <- renderDataTable({
+    enrich_go_bo_df %>%
+      group_by(Group) %>%
+      filter(Group == "Uninjured") %>%
+      filter(ID %in% vertex_attr(unj)$name[vertex_attr(unj)$name == input$current_node_id])
+  })
+  
+  observeEvent(input$current_node_id, {
+    visNetworkProxy("uninjured_net") %>%
+      visGetNodes()
+  })
+  
+  output$verb_unj <- renderText({ paste0("Selected GO:BP is: ",input$current_node_id)
+  })
+  
+  output$genes_go_unj <- renderValueBox(valueBox(value = tags$p(enrich_go_bo_df %>% group_by(Group) %>% filter(Group == "Uninjured") %>% filter(ID %in% vertex_attr(unj)$name[vertex_attr(unj)$name == input$current_node_id]) %>% pull(geneID) %>% gsub(pattern = "/",replacement=","),style = "font-size: 35%;", style ="color : black"), color="green", subtitle = "Genes Involved in the GO:BP"))
+  
+  
+  #output$heartcore_net = renderPlot({
   output$heartcore_net = renderVisNetwork({
-    visNetwork::visIgraph(core) |>  visOptions(selectedBy = "Clusters") |>   visInteraction(navigationButtons = TRUE) |> visNetwork::visLayout(randomSeed = 123456)
-
+    visNetwork::visIgraph(core) |>
+      visOptions(selectedBy = "Clusters") |>
+      visInteraction(navigationButtons = TRUE) |>
+      #visNetwork::visLayout(randomSeed = 123456) |> 
+      #visEvents(select = "function(nodes) {Shiny.onInputChange('current_node_id', nodes.nodes);;}")
+      visEvents(select = "function(nodes) {Shiny.onInputChange('current_node_id', nodes.nodes);;}")
+  })
+  
+  output$goTable_core <- renderDataTable({
+    core_reg %>%
+      group_by(ID) %>%
+      filter(ID %in% vertex_attr(core)$name[vertex_attr(core)$name == input$current_node_id])
+  })
+  
+  observeEvent(input$current_node_id, {
+    visNetworkProxy("heartcore_net") %>%
+      visGetNodes()
+  })
+  
+  output$verb_core <- renderText({ paste0("Selected GO:BP is: ",input$current_node_id)
   })
   
   
+  output$genes_go_core <- renderValueBox(valueBox(value = tags$p(core_reg %>% group_by(ID) %>% filter(ID %in% vertex_attr(core)$name[vertex_attr(core)$name == input$current_node_id]) %>% pull(Genes),style = "font-size: 35%;", style ="color : black"), color="yellow", subtitle = "Genes Involved in the GO:BP"))
   
-  # 
-  # 
-  output$blue_value_box <- renderValueBox(valueBox(value = paste0("Selected genes: ",vertex_attr(unj)$`EnrichmentMap::Genes`[1]),color="blue",subtitle = "Enrichment Map Genes"))
-  output$purple_value_box <- renderValueBox(valueBox(value = paste0("Interesting genes: ",unlist(vertex_attr(core)$`EnrichmentMap::Genes`[1])) ,color="purple",subtitle = "Enrichment Map Genes"))
-  # output$red_value_box <- renderValueBox(valueBox(value = paste0("Sad flights: ",v$df %>% dplyr::filter(Feeling == "Sad") %>% dplyr::count()),color = "red",subtitle = "Sad"))
-  # output$top_start_spot1 <- renderValueBox(valueBox(value = paste0("Start: ",v$df %>% dplyr::count(StartPosition,sort = TRUE) %>% slice(1) %>% pull(StartPosition)),color = "orange",subtitle = "Top-1"))
-  # output$top_start_spot2 <- renderValueBox(valueBox(value = paste0("Start: ",v$df %>% dplyr::count(StartPosition,sort = TRUE) %>% slice(2) %>% pull(StartPosition)),color = "lime",subtitle = "Top-2"))
-  # output$top_start_spot3 <- renderValueBox(valueBox(value = paste0("Start: ",v$df %>% dplyr::count(StartPosition,sort = TRUE) %>% slice(3) %>% pull(StartPosition)),color = "olive",subtitle = "Top-3"))
-  # output$top_landing_spot1 <- renderValueBox(valueBox(value = paste0("Landing: ",v$df %>% dplyr::count(LandingPosition,sort = TRUE) %>% slice(1) %>% pull(LandingPosition)),color = "orange",subtitle = "Top-1"))
-  # output$top_landing_spot2 <- renderValueBox(valueBox(value = paste0("Landing: ",v$df %>% dplyr::count(LandingPosition,sort = TRUE) %>% slice(2) %>% pull(LandingPosition)),color = "lime",subtitle = "Top-2"))
-  # output$top_landing_spot3 <- renderValueBox(valueBox(value = paste0("Landing: ",v$df %>% dplyr::count(LandingPosition,sort = TRUE) %>% slice(3) %>% pull(LandingPosition)),color = "olive",subtitle = "Top-3"))
   
+  #enrich_go_bo_df %>% group_by(ID) %>% filter(ID %in% vertex_attr(core)$name[vertex_attr(core)$name == input$current_node_id]) %>% pull(Genes) %>% strsplit(split = ",") %>% unlist()
+  # # 
+  # output$blue_value_box <- renderValueBox(valueBox(value = paste0("Selected genes: ",vertex_attr(unj)$`EnrichmentMap::Genes`[1]),color="blue",subtitle = "Enrichment Map Genes"))
+  # output$purple_value_box <- renderValueBox(valueBox(value = paste0("Interesting genes: ",unlist(vertex_attr(core)$`EnrichmentMap::Genes`[1])) ,color="purple",subtitle = "Enrichment Map Genes"))
+  # # output$red_value_box <- renderValueBox(valueBox(value = paste0("Sad flights: ",v$df %>% dplyr::filter(Feeling == "Sad") %>% dplyr::count()),color = "red",subtitle = "Sad"))
+  # # output$top_start_spot1 <- renderValueBox(valueBox(value = paste0("Start: ",v$df %>% dplyr::count(StartPosition,sort = TRUE) %>% slice(1) %>% pull(StartPosition)),color = "orange",subtitle = "Top-1"))
+  # # output$top_start_spot2 <- renderValueBox(valueBox(value = paste0("Start: ",v$df %>% dplyr::count(StartPosition,sort = TRUE) %>% slice(2) %>% pull(StartPosition)),color = "lime",subtitle = "Top-2"))
+  # # output$top_start_spot3 <- renderValueBox(valueBox(value = paste0("Start: ",v$df %>% dplyr::count(StartPosition,sort = TRUE) %>% slice(3) %>% pull(StartPosition)),color = "olive",subtitle = "Top-3"))
+  # # output$top_landing_spot1 <- renderValueBox(valueBox(value = paste0("Landing: ",v$df %>% dplyr::count(LandingPosition,sort = TRUE) %>% slice(1) %>% pull(LandingPosition)),color = "orange",subtitle = "Top-1"))
+  # # output$top_landing_spot2 <- renderValueBox(valueBox(value = paste0("Landing: ",v$df %>% dplyr::count(LandingPosition,sort = TRUE) %>% slice(2) %>% pull(LandingPosition)),color = "lime",subtitle = "Top-2"))
+  # # output$top_landing_spot3 <- renderValueBox(valueBox(value = paste0("Landing: ",v$df %>% dplyr::count(LandingPosition,sort = TRUE) %>% slice(3) %>% pull(LandingPosition)),color = "olive",subtitle = "Top-3"))
+  # 
   
 }
 
