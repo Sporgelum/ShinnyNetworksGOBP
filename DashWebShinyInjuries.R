@@ -102,8 +102,8 @@ credentials <- data.frame(
 #cat NN | tr "\n" " "
 #excel to paste and make the final command
 #
-abl <- read_graph(file = "D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Ablated_vs_Sham.graphml",
-                  #file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Ablated_vs_Sham.graphml",
+abl <- read_graph(#file = "D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Ablated_vs_Sham.graphml",
+                  file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Ablated_vs_Sham.graphml",
                   format = "graphml")
 
 npp <- c("GO:1901293", "GO:0072522", "GO:0006163", "GO:0022900", "GO:0042775", "GO:0006123", "GO:1903715", "GO:0046040", "GO:0034033", "GO:0033866", "GO:0015986", "GO:0006085", "GO:0044272", "GO:0072521", "GO:0043467", "GO:0072350", "GO:0006188", "GO:0043648", "GO:0071616", "GO:0009205", "GO:0042773", "GO:0009201", "GO:0006084", "GO:0009142", "GO:0019646", "GO:0034032", "GO:0006753", "GO:0019693", "GO:0006790", "GO:0033865", "GO:0009145", "GO:0046390", "GO:0009127", "GO:0009199", "GO:0006164", "GO:0009152", "GO:0035383", "GO:0033875", "GO:0009060", "GO:0019359", "GO:0006637", "GO:0009260", "GO:0015980", "GO:0009124", "GO:1902600", "GO:0006167", "GO:0006099", "GO:0009144", "GO:0009259", "GO:0006107", "GO:0006086", "GO:0015985", "GO:0009165", "GO:0045333", "GO:0034030", "GO:0046034", "GO:0035384", "GO:0042776", "GO:0009156", "GO:0006120", "GO:0006754", "GO:0022904", "GO:0046033", "GO:0009206", "GO:0006090", "GO:0009117", "GO:0006119", "GO:0009141", "GO:0043457", "GO:0009168")
@@ -354,8 +354,8 @@ vertex_attr(abl)$Clusters <- unlist(AA_Clusters)
 #################################
 #  Resection                    #
 #################################
-amp <- read_graph(file = "D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Amputation_vs_Sham.graphml",
-                  #file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Amputation_vs_Sham.graphml",
+amp <- read_graph(#file = "D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Amputation_vs_Sham.graphml",
+                  file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Amputation_vs_Sham.graphml",
                   format = "graphml")
 
 pim <- c("GO:0001819", "GO:0002263", "GO:0002274", "GO:0002275", "GO:0002279", "GO:0002366", "GO:0002420", "GO:0002444", "GO:0002448", "GO:0002697", "GO:0002699", "GO:0002700", "GO:0002702", "GO:0002703", "GO:0002705", "GO:0002717", "GO:0002718", "GO:0002858", "GO:0002886", "GO:0031343", "GO:0032418", "GO:0033003", "GO:0033005", "GO:0033006", "GO:0033008", "GO:0043299", "GO:0043300", "GO:0043302", "GO:0043303", "GO:0043304", "GO:0043306", "GO:0045576", "GO:0045954", "GO:0051656")
@@ -545,8 +545,8 @@ vertex_attr(amp)$Clusters <- unlist(AA_Clusters)
 #################################
 #   Uninjured                   #
 #################################
-unj <- read_graph(file = "D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Uninjured_vs_Sham.graphml",
-                  #file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Uninjured_vs_Sham.graphml",
+unj <- read_graph(#file = "D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Uninjured_vs_Sham.graphml",
+                  file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Uninjured_vs_Sham.graphml",
                   format = "graphml")
 
 
@@ -580,8 +580,8 @@ vertex_attr(unj)$Clusters <- unlist(AA_Clusters)
 #################################
 #     Core regeneration         #
 #################################
-core <- read_graph(file = "D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/heart_regeneration_core_mm_fil_cleaned_Abl_Sham__gobp.graphml",
-                   #file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/heart_regeneration_core_mm_fil_cleaned_Abl_Sham__gobp.graphml",
+core <- read_graph(#file = "D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/heart_regeneration_core_mm_fil_cleaned_Abl_Sham__gobp.graphml",
+                   file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/heart_regeneration_core_mm_fil_cleaned_Abl_Sham__gobp.graphml",
                    format = "graphml")
 
 # vertex_attr(core)$name
@@ -710,11 +710,26 @@ AA_Clusters <- lapply(seq_along(vertex_attr(core)$AA),function(n) {
 vertex_attr(core)$Clusters <- unlist(AA_Clusters)
 
 
-unj_counts <- read.table(file = "D:/Phd/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/dr2mmus/Uninjured_vs_Sham_mouse_enriched_all_clean.txt",header = TRUE,sep = "\t")
-abl_counts <- read.table(file = "D:/Phd/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/dr2mmus/Ablated__vs_Uninjured_mouse_enriched_all_clean.txt",header = TRUE,sep = "\t")
-amp_counts <- read.table(file = "D:/Phd/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/dr2mmus/Amputation_vs_Sham_mouse_enriched_all_clean.txt",header = TRUE,sep = "\t")
-cry_counts <- read.table(file = "D:/Phd/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/dr2mmus/Cryonjury_vs_Sham_mouse_enriched_all_clean.txt",header = TRUE,sep = "\t")
-s4c <- read.table(file = "D:/PhD/Projects/prsa/BatchCorrected/colData_s4c.txt",header = TRUE,sep = "\t")
+unj_counts <- read.table(#file = "D:/Phd/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/dr2mmus/Uninjured_vs_Sham_mouse_enriched_all_clean.txt",
+  file = "/media/marius/Samsung_T5/Phd/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/dr2mmus/Uninjured_vs_Sham_mouse_enriched_all_clean.txt",
+  header = TRUE,sep = "\t")
+
+abl_counts <- read.table(#file = "D:/Phd/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/dr2mmus/Ablated__vs_Uninjured_mouse_enriched_all_clean.txt",
+  file = "/media/marius/Samsung_T5/Phd/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/dr2mmus/Ablated__vs_Uninjured_mouse_enriched_all_clean.txt",
+  header = TRUE,sep = "\t")
+
+amp_counts <- read.table(#file = "D:/Phd/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/dr2mmus/Amputation_vs_Sham_mouse_enriched_all_clean.txt",
+  file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/dr2mmus/Amputation_vs_Sham_mouse_enriched_all_clean.txt",
+  header = TRUE,sep = "\t")
+
+cry_counts <- read.table(#file = "D:/Phd/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/dr2mmus/Cryonjury_vs_Sham_mouse_enriched_all_clean.txt",
+  file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/dr2mmus/Cryonjury_vs_Sham_mouse_enriched_all_clean.txt",
+  header = TRUE,sep = "\t")
+
+s4c <- read.table(
+  #file = "D:/PhD/Projects/prsa/BatchCorrected/colData_s4c.txt",
+  file = "/media/marius/Samsung_T5/PhD/Projects/prsa/BatchCorrected/colData_s4c.txt",
+  header = TRUE,sep = "\t")
 
 
 sham_counts <- cry_counts[,c(rownames(s4c %>% filter(Condition=="Sham")),"MGI_Symbol")]
@@ -730,12 +745,14 @@ core_counts <- cbind(
   sham_counts)
 
 
-enrich_go_bo_df <- read.table("D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/setDiffConditions/GOBP/Mmus_clean_gobp_enrichment_v2_abl_sham.txt",
-                              #"/media/marius/Samsung_T5/Phd/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/setDiffConditions/GOBP/Mmus_clean_gobp_enrichment_v2_abl_sham.txt",
-                              sep = "\t",header = TRUE)
+enrich_go_bo_df <- read.table(#"D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/setDiffConditions/GOBP/Mmus_clean_gobp_enrichment_v2_abl_sham.txt",
+  file = "/media/marius/Samsung_T5/Phd/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/setDiffConditions/GOBP/Mmus_clean_gobp_enrichment_v2_abl_sham.txt",
+  sep = "\t",header = TRUE)
 
 
-core_reg <- read.table("D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/coreRegeneration/GEM/heart_regeneration_core_mm_fil_cleaned_Abl_Sham__gobp.txt",sep = "\t",header = TRUE)
+core_reg <- read.table(#file = "D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/coreRegeneration/GEM/heart_regeneration_core_mm_fil_cleaned_Abl_Sham__gobp.txt",
+                       file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/coreRegeneration/GEM/heart_regeneration_core_mm_fil_cleaned_Abl_Sham__gobp.txt",
+                       sep = "\t",header = TRUE)
 
 
 #enrich_go_bo_df |> group_by(Group) |> filter(Group == "Amputation")
@@ -771,9 +788,9 @@ ui <- secure_app(head_auth = tags$script(inactivity),
                                  tabItems(
                                    tabItem(tabName = "home",
                                            #home section and markdown
-                                           includeMarkdown("D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/RShinyCode/ShinnyNetworksGOBP/www/markdown_home.md")),
-                                             #"/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/RShinyCode/ShinnyNetworksGOBP/www/markdown_home.md")),
-                                   
+                                           includeMarkdown(
+                                             #"D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/RShinyCode/ShinnyNetworksGOBP/www/markdown_home.md")),
+                                             "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/RShinyCode/ShinnyNetworksGOBP/www/markdown_home.md")),
                                    # #next tab
                                    # tabItem(tabName = "dashboard",
                                    #         fluidRow(
@@ -800,10 +817,10 @@ ui <- secure_app(head_auth = tags$script(inactivity),
                                    tabItem(tabName = "amputated",
                                            fluidRow(
                                              column(width = 12, textOutput("verb_amp")),#tags$head(tags$style("#text1{color: red;font-size: 20px;font-style: italic;}")) %>% withSpinner()),
-                                             column(width = 12, visNetworkOutput(outputId = "amputated_net",width = "auto",height = "600px") %>% withSpinner()),
+                                             column(width = 12, visNetworkOutput(outputId = "amputated_net",width = "auto",height = "400px") %>% withSpinner()),
                                              column(width = 12, dataTableOutput("goTable_amp", width = "auto",height = "auto") %>% withSpinner()),
-                                             column(width = 12,valueBoxOutput(width = 12,outputId = "genes_go_amp") %>% withSpinner())
-                                             #column(width = 12, plotOutput(width = 8,height = 8,outputId = "amphm") %>% withSpinner())
+                                             column(width = 12,valueBoxOutput(width = 12,outputId = "genes_go_amp") %>% withSpinner()),
+                                             column(width = 12, plotOutput(height = "100%",width = "auto",outputId = "amphm") %>% withSpinner())
                                              )
                                            ),
                                    #next tab
@@ -885,22 +902,36 @@ server <- function(input, output, session) {
   # require(gridExtra)
   # require(gridGraphics)
   # require(grid)
-  # output$amphm <- renderPlot({
-  #   #par(mar=c(1, 1, 1, 1)) # bottom, left, top, right
+  #add reactive fucntion to reformat everytime i click on a goterm..
+  
+  
+  
+  plotdata <- eventReactive(input$current_node_id, {
+    genes_amp <- enrich_go_bo_df %>% group_by(Group) %>% filter(Group == "Amputation") %>% filter(ID %in% vertex_attr(amp)$name[vertex_attr(amp)$name == input$current_node_id]) %>% pull(geneID) %>% gsub(pattern = "/",replacement=",")  %>% strsplit(split = ",") %>% unlist()
+    names(amp_counts)
+    amp_counts2 <- as.data.frame(amp_counts[,c(rownames(s4c %>% filter(Condition %in% c("Amputation","Sham"))),"MGI_Symbol")])
+    amp_counts_genes <- amp_counts2 %>% filter(MGI_Symbol %in% genes_amp) %>% distinct(MGI_Symbol,.keep_all = TRUE)
+    amp_mat <- as.matrix(amp_counts_genes[,-c(length(amp_counts_genes))])
+    rownames(amp_mat) <- amp_counts_genes$MGI_Symbol
+    #col_lab <- s4c %>% filter(Condition %in% c("Amputation","Sham")) %>% pull(Condition)
+    amp_mat
+    # 
+    # a <- as.matrix(a()[-1])
+    # row.names(a) <- a()$Name
+    # a[is.na(a)] <- 0
+    # a
+  })
+  output$amphm <- renderPlot({
+    require(pheatmap)  #   #par(mar=c(1, 1, 1, 1)) # bottom, left, top, right
   #   par(mfcol=c(1,1),mai=c(0.2,0.2,0.2,0))
-  #   #heatmaply(x = amp_mat,Rowv = NA,Colv = NA,na.rm = TRUE,scale = "row")
+    pheatmap(mat = amp_mat,scale = "row",cluster_cols = TRUE,treeheight_row = 2,legend = TRUE,treeheight_col = 2,height = 6.25,fontsize_col = 2,fontsize_row = 8)
+    #heatmap(x = amp_mat,Rowv = NA,Colv = NA,na.rm = TRUE,scale = "row")
   #   heatmap(x = amp_mat,Rowv = NA,Colv = NA,na.rm = TRUE,scale = "row")
-  #   genes_amp <- enrich_go_bo_df %>% group_by(Group) %>% filter(Group == "Amputation") %>% filter(ID %in% vertex_attr(amp)$name[vertex_attr(amp)$name == input$current_node_id]) %>% pull(geneID) %>% gsub(pattern = "/",replacement=",")  %>% strsplit(split = ",") %>% unlist()
-  #   #names(amp_counts)
-  #   amp_counts2 <- as.data.frame(amp_counts[,c(rownames(s4c %>% filter(Condition %in% c("Amputation","Sham"))),"MGI_Symbol")])
-  #   amp_counts_genes <- amp_counts2 %>% filter(MGI_Symbol %in% genes_amp) %>% distinct(MGI_Symbol,.keep_all = TRUE)
-  #   amp_mat <- as.matrix(amp_counts_genes[,-c(length(amp_counts_genes))])
-  #   rownames(amp_mat) <- amp_counts_genes$MGI_Symbol
-  #   #col_lab <- s4c %>% filter(Condition %in% c("Amputation","Sham")) %>% pull(Condition)
-  # })
-  
-  
     
+    })
+
+
+
   output$ablated_net = renderVisNetwork({
     visNetwork::visIgraph(abl) |>
       visOptions(selectedBy = "Clusters") |>
