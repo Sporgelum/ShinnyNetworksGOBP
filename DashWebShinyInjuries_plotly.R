@@ -17,7 +17,10 @@ library("visNetwork")
 library("ComplexHeatmap")
 library("InteractiveComplexHeatmap")
 require("visNetwork")
-
+library("heatmaply")
+library("plotly")
+library("brew")
+library("RColorBrewer")
 #.libPaths("/home/mbotos/R/x86_64-pc-linux-gnu-library/4.2/")
 #install.packages("sodium")
 #install.packages("leaflet",dependencies=TRUE)
@@ -102,13 +105,13 @@ credentials <- data.frame(
 #################################
 #     Ablated                   #
 #################################
-#:%s/^\(.*\)$/"\1",/
+##:%s/^\(.*\)$/"\1",/
 #cat NN | tr "\n" " "
 #excel to paste and make the final command
 #
 abl <- read_graph(#file = "D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Ablated_vs_Sham.graphml",
-                  file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Ablated_vs_Sham.graphml",
-                  format = "graphml")
+  file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Ablated_vs_Sham.graphml",
+  format = "graphml")
 
 npp <- c("GO:1901293", "GO:0072522", "GO:0006163", "GO:0022900", "GO:0042775", "GO:0006123", "GO:1903715", "GO:0046040", "GO:0034033", "GO:0033866", "GO:0015986", "GO:0006085", "GO:0044272", "GO:0072521", "GO:0043467", "GO:0072350", "GO:0006188", "GO:0043648", "GO:0071616", "GO:0009205", "GO:0042773", "GO:0009201", "GO:0006084", "GO:0009142", "GO:0019646", "GO:0034032", "GO:0006753", "GO:0019693", "GO:0006790", "GO:0033865", "GO:0009145", "GO:0046390", "GO:0009127", "GO:0009199", "GO:0006164", "GO:0009152", "GO:0035383", "GO:0033875", "GO:0009060", "GO:0019359", "GO:0006637", "GO:0009260", "GO:0015980", "GO:0009124", "GO:1902600", "GO:0006167", "GO:0006099", "GO:0009144", "GO:0009259", "GO:0006107", "GO:0006086", "GO:0015985", "GO:0009165", "GO:0045333", "GO:0034030", "GO:0046034", "GO:0035384", "GO:0042776", "GO:0009156", "GO:0006120", "GO:0006754", "GO:0022904", "GO:0046033", "GO:0009206", "GO:0006090", "GO:0009117", "GO:0006119", "GO:0009141", "GO:0043457", "GO:0009168")
 cvt <- c("GO:0055010", "GO:0060415", "GO:0003228", "GO:0060343", "GO:0003206", "GO:0048644", "GO:0003208", "GO:0003231", "GO:0003209", "GO:0003230", "GO:0055008", "GO:0003205", "GO:0061383", "GO:0003214", "GO:0055015", "GO:0048845", "GO:0061384", "GO:0001570", "GO:0055012", "GO:0003229", "GO:0003007", "GO:0060841", "GO:0060347", "GO:0003222")
@@ -121,6 +124,7 @@ vsa <- c("GO:0045823", "GO:0035904", "GO:0097084", "GO:2001212", "GO:0060840", "
 dms <- c("GO:0072673", "GO:0050773", "GO:0022604", "GO:0010770", "GO:0008360", "GO:0060997", "GO:0050775", "GO:0048813", "GO:0048814", "GO:0016358", "GO:0060996", "GO:0010769")
 mpm <- c("GO:0097345", "GO:1905710", "GO:0006839", "GO:1902110", "GO:1902686", "GO:0090559", "GO:0035794", "GO:0008637", "GO:0007006", "GO:0046902", "GO:1902108", "GO:0010821")
 ota <- c("GO:0098656", "GO:0003333", "GO:0015816", "GO:0015804", "GO:0015807", "GO:1905039", "GO:0015711", "GO:0015849", "GO:0043090", "GO:0006865", "GO:0032328", "GO:1903825")
+#
 #vma <- vertex_attr(abl)$name[vertex_attr(abl)$`__glayCluster` == 1]
 vma <- c("GO:0072384", "GO:0008089", "GO:0051650", "GO:0008090", "GO:0047496", "GO:0008088", "GO:0098930", "GO:0051648", "GO:0010970", "GO:0006900", "GO:0099518")
 its <- c("GO:0050729", "GO:0031620", "GO:0044070", "GO:0031650", "GO:0002673", "GO:0002675", "GO:0001660", "GO:0002526", "GO:0009636", "GO:0031649")
@@ -359,8 +363,8 @@ vertex_attr(abl)$Clusters <- unlist(AA_Clusters)
 #  Resection                    #
 #################################
 amp <- read_graph(#file = "D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Amputation_vs_Sham.graphml",
-                  file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Amputation_vs_Sham.graphml",
-                  format = "graphml")
+  file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Amputation_vs_Sham.graphml",
+  format = "graphml")
 
 pim <- c("GO:0001819", "GO:0002263", "GO:0002274", "GO:0002275", "GO:0002279", "GO:0002366", "GO:0002420", "GO:0002444", "GO:0002448", "GO:0002697", "GO:0002699", "GO:0002700", "GO:0002702", "GO:0002703", "GO:0002705", "GO:0002717", "GO:0002718", "GO:0002858", "GO:0002886", "GO:0031343", "GO:0032418", "GO:0033003", "GO:0033005", "GO:0033006", "GO:0033008", "GO:0043299", "GO:0043300", "GO:0043302", "GO:0043303", "GO:0043304", "GO:0043306", "GO:0045576", "GO:0045954", "GO:0051656")
 brd <- c("GO:0000018", "GO:0000724", "GO:0000725", "GO:0000727", "GO:0000731", "GO:0006260", "GO:0006261", "GO:0006268", "GO:0006270", "GO:0006275", "GO:0006281", "GO:0006284", "GO:0006302", "GO:0006310", "GO:0006336", "GO:0010216", "GO:0032392", "GO:0032508", "GO:0033260", "GO:0034724", "GO:0044786", "GO:0045740", "GO:0071103", "GO:0090329", "GO:1900262", "GO:1900264", "GO:2000042")
@@ -550,8 +554,8 @@ vertex_attr(amp)$Clusters <- unlist(AA_Clusters)
 #   Uninjured                   #
 #################################
 unj <- read_graph(#file = "D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Uninjured_vs_Sham.graphml",
-                  file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Uninjured_vs_Sham.graphml",
-                  format = "graphml")
+  file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/cleaned_unique_go_bp_v2__Uninjured_vs_Sham.graphml",
+  format = "graphml")
 
 
 pdp <- c("GO:0046939","GO:0046365","GO:0019320","GO:0009185","GO:0009179","GO:0009135","GO:0009132","GO:0006757","GO:0006096")
@@ -585,8 +589,8 @@ vertex_attr(unj)$Clusters <- unlist(AA_Clusters)
 #     Core regeneration         #
 #################################
 core <- read_graph(#file = "D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/heart_regeneration_core_mm_fil_cleaned_Abl_Sham__gobp.graphml",
-                   file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/heart_regeneration_core_mm_fil_cleaned_Abl_Sham__gobp.graphml",
-                   format = "graphml")
+  file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/NetworkExported/heart_regeneration_core_mm_fil_cleaned_Abl_Sham__gobp.graphml",
+  format = "graphml")
 
 # vertex_attr(core)$name
 # vertex_attr(core)$`EnrichmentMap::GS_DESCR`
@@ -754,8 +758,8 @@ enrich_go_bo_df <- read.table(#"D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned
 
 
 core_reg <- read.table(#file = "D:/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/coreRegeneration/GEM/heart_regeneration_core_mm_fil_cleaned_Abl_Sham__gobp.txt",
-                       file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/coreRegeneration/GEM/heart_regeneration_core_mm_fil_cleaned_Abl_Sham__gobp.txt",
-                       sep = "\t",header = TRUE)
+  file = "/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/coreRegeneration/GEM/heart_regeneration_core_mm_fil_cleaned_Abl_Sham__gobp.txt",
+  sep = "\t",header = TRUE)
 
 
 
@@ -812,11 +816,11 @@ ui <- secure_app(head_auth = tags$script(inactivity),
                                              column(width = 12, visNetworkOutput(outputId = "amputated_net",width = "auto", height = "600px") %>% withSpinner()),
                                              column(width = 12, dataTableOutput("goTable_amp", width = "auto",height = "100%") %>% withSpinner()),
                                              column(width = 12,valueBoxOutput(width = "100%",outputId = "genes_go_amp") %>% withSpinner()),
-                                             column(width = 12,plotOutput(height="100%",outputId = "amphm") %>% withSpinner())
+                                             column(width = 10,plotlyOutput(height="100%",outputId = "amphm") %>% withSpinner())
                                              #box(width = 12,InteractiveComplexHeatmapOutput(outputId = "amphm") %>% withSpinner())
                                              
-                                             )
-                                           ),
+                                           )
+                                   ),
                                    #next tab
                                    tabItem(tabName = "ablated",
                                            fluidRow(
@@ -824,10 +828,10 @@ ui <- secure_app(head_auth = tags$script(inactivity),
                                              column(width = 12, visNetworkOutput(outputId = "ablated_net",width = "auto",height = "600px") %>% withSpinner()),
                                              column(width = 12, dataTableOutput("goTable_abl", width = "auto",height = "auto") %>% withSpinner()),
                                              column(width = 12,valueBoxOutput(width = 12,outputId = "genes_go_abl") %>% withSpinner()),
-                                             column(width = 12,InteractiveComplexHeatmapOutput(outputId = "ablhm") %>% withSpinner())
+                                             column(width = 10,plotlyOutput(outputId = "ablhm") %>% withSpinner())
                                              
-                                             )
-                                           ),
+                                           )
+                                   ),
                                    #next tab
                                    tabItem(tabName = "uninjured",
                                            fluidRow(
@@ -835,10 +839,11 @@ ui <- secure_app(head_auth = tags$script(inactivity),
                                              column(width = 12, visNetworkOutput(outputId = "uninjured_net",width = "auto",height = "600px") %>% withSpinner()),
                                              column(width = 12, dataTableOutput("goTable_unj", width = "auto",height = "auto") %>% withSpinner()),
                                              column(width = 12,valueBoxOutput(width = 12,outputId = "genes_go_unj") %>% withSpinner()),
-                                             column(width = 12,InteractiveComplexHeatmapOutput(outputId = "unjhm") %>% withSpinner())
+                                             # column(width = 12,InteractiveComplexHeatmapOutput(outputId = "unjhm") %>% withSpinner())
+                                             column(width = 10,plotlyOutput(outputId = "unjhm") %>% withSpinner())
                                              
-                                             )
-                                           ),
+                                           )
+                                   ),
                                    #next tab
                                    tabItem(tabName = "heartcore",
                                            fluidRow(
@@ -846,10 +851,10 @@ ui <- secure_app(head_auth = tags$script(inactivity),
                                              column(width = 12, visNetworkOutput(outputId = "heartcore_net",width = "auto",height = "600px") %>% withSpinner()),
                                              column(width = 12, dataTableOutput("goTable_core", width = "auto", height = "auto") %>% withSpinner()),
                                              column(width = 12,valueBoxOutput(width = "auto",outputId = "genes_go_core") %>% withSpinner()),
-                                             column(width = 12,InteractiveComplexHeatmapOutput(outputId = "hchm") %>% withSpinner())
+                                             column(width = 10,plotlyOutput(outputId = "hchm") %>% withSpinner())
                                              
-                                             )
-                                           ),
+                                           )
+                                   ),
                                    #next tab
                                    tabItem(tabName = "about",
                                            h2("Created and scractched by: "),
@@ -861,6 +866,9 @@ ui <- secure_app(head_auth = tags$script(inactivity),
                  )# end dashboardPage
 )#end all
 
+myCol <- c("#CC79A7","#0072B2","#E69F00","#999999")
+myCol_3 <- c("#CC79A7","#0072B2","#009E73","#999999")
+
 
 server <- function(input, output, session) {
   
@@ -871,7 +879,7 @@ server <- function(input, output, session) {
     
   })
   
-output$amputated_net = renderVisNetwork({
+  output$amputated_net = renderVisNetwork({
     visNetwork::visIgraph(amp) |>
       visOptions(selectedBy = "Clusters") |>
       visInteraction(navigationButtons = TRUE) |>
@@ -899,32 +907,35 @@ output$amputated_net = renderVisNetwork({
       value = tags$p(enrich_go_bo_df %>% group_by(Group) %>% filter(Group == "Amputation") %>% filter(ID %in% vertex_attr(amp)$name[vertex_attr(amp)$name == input$current_node_id]) %>% pull(geneID) %>% gsub(pattern = "/",replacement=","),style = "font-size: 35%;", style ="color : black"),
       color="fuchsia",
       subtitle = paste0("Genes Involved in the ",input$current_node_id)))
-
-
+  
+  
   observeEvent(input$current_node_id, {
     genes_amp <- enrich_go_bo_df %>% group_by(Group) %>% filter(Group == "Amputation") %>% filter(ID %in% vertex_attr(amp)$name[vertex_attr(amp)$name == input$current_node_id]) %>% pull(geneID) %>% gsub(pattern = "/",replacement=",")  %>% strsplit(split = ",") %>% unlist()
-    #names(amp_counts)
-    
     amp_counts2 <- as.data.frame(amp_counts[,c(rownames(s4c %>% filter(Condition %in% c("Amputation","Sham"))),"MGI_Symbol")])
     amp_counts_genes <- amp_counts2 %>% filter(MGI_Symbol %in% genes_amp) %>% distinct(MGI_Symbol,.keep_all = TRUE)
-    
-    amp_mat <- as.matrix(amp_counts_genes[,-c(length(amp_counts_genes))])
+    amp_mat <- as.data.frame(amp_counts_genes[,-c(length(amp_counts_genes))])
     rownames(amp_mat) <- amp_counts_genes$MGI_Symbol
+    
     col_annotation_amp <- data.frame("Conditions" = s4c |> filter(rownames(s4c) %in% colnames(amp_mat)) |> pull(Condition))
     
-    #col_annotation <- col_annotation |> mutate(Colors_df = if_else(Conditions == "Amputation","magenta","grey"))
-    col_annotation_amp <- HeatmapAnnotation(df = col_annotation_amp,col = list(Conditions = c("Amputation" = "magenta",
-                                                                                              "Sham" = "grey")))
-    
-    
-    #Amputation
-    ht_amp <- Heatmap(matrix = amp_mat,na_col = "black",cluster_columns = TRUE,cluster_rows = TRUE,name="Raw-counts",top_annotation = col_annotation_amp)
-    ht_amp <- draw(ht_amp)
-    InteractiveComplexHeatmapWidget(input, output, session, ht_list = ht_amp, output_id = "amphm")
-    #htShiny(ht_list = ht_amp)
-    
+    output$amphm <- renderPlotly({
+      heatmaply::heatmaply(x=amp_mat,
+                           colors = colorRampPalette(brewer.pal(3, "RdBu"))(256),
+                           col_side_colors = col_annotation_amp$Conditions,
+                           col_side_palette = c("Sham" = "grey",
+                                                "Amputation" = "magenta"),
+                           hide_colorbar = FALSE,
+                           showticklabels=TRUE,
+                           Rowv = FALSE,
+                           olv = TRUE,
+                           plot_method = "plotly",
+                           scale = "column",
+                           key.title = "Expression by\nColumn",
+                           grid_color = "white",
+                           grid_width = 0.00001,
+                           heatmap_layers = theme(axis.line=element_blank()))
+    })
   })
-
   
   
   output$ablated_net = renderVisNetwork({
@@ -933,7 +944,7 @@ output$amputated_net = renderVisNetwork({
       visInteraction(navigationButtons = TRUE) |>
       visNetwork::visLayout(randomSeed = 123456) |> 
       visEvents(select = "function(nodes) {Shiny.onInputChange('current_node_id', nodes.nodes);;}")
-    })
+  })
   
   
   output$goTable_abl <- renderDataTable({
@@ -953,28 +964,36 @@ output$amputated_net = renderVisNetwork({
   
   output$genes_go_abl <- renderValueBox(valueBox(value = tags$p(enrich_go_bo_df %>% group_by(Group) %>% filter(Group == "Ablated") %>% filter(ID %in% vertex_attr(abl)$name[vertex_attr(abl)$name == input$current_node_id]) %>% pull(geneID) %>% gsub(pattern = "/",replacement=","),style = "font-size: 35%;", style ="color : black"), color="orange", subtitle = paste0("Genes Involved in the ",input$current_node_id)))
   
-  
+
   observeEvent(input$current_node_id, {
     genes_abl <- enrich_go_bo_df %>% group_by(Group) %>% filter(Group == "Ablated") %>% filter(ID %in% vertex_attr(abl)$name[vertex_attr(abl)$name == input$current_node_id]) %>% pull(geneID) %>% gsub(pattern = "/",replacement=",")  %>% strsplit(split = ",") %>% unlist()
-    #names(abl_counts)
     abl_counts2 <- as.data.frame(abl_counts[,c(rownames(s4c %>% filter(Condition %in% c("Ablated","Sham"))),"MGI_Symbol")])
     abl_counts_genes <- abl_counts2 %>% filter(MGI_Symbol %in% genes_abl) %>% distinct(MGI_Symbol,.keep_all = TRUE)
-    abl_mat <- as.matrix(abl_counts_genes[,-c(length(abl_counts_genes))])
+    abl_mat <- as.data.frame(abl_counts_genes[,-c(length(abl_counts_genes))])
     rownames(abl_mat) <- abl_counts_genes$MGI_Symbol
+    
     col_annotation_abl <- data.frame("Conditions" = s4c |> filter(rownames(s4c) %in% colnames(abl_mat)) |> pull(Condition))
-    col_annotation_abl <- HeatmapAnnotation(df = col_annotation_abl,col = list(Conditions = c("Ablated" = "orange",
-                                                                                      "Sham" = "grey")))
     
-    #Ablation
-    ht_abl <- Heatmap(matrix = abl_mat,na_col = "black",cluster_columns = TRUE,cluster_rows = TRUE,name="Raw-counts",top_annotation = col_annotation_abl)
-    ht_abl <- draw(ht_abl)
-    InteractiveComplexHeatmapWidget(input, output, session, ht_abl, output_id = "ablhm")
-    #htShiny(ht_list = ht_abl)
-    
-    
+    output$ablhm <- renderPlotly({
+      heatmaply::heatmaply(x=abl_mat,
+                           colors = colorRampPalette(brewer.pal(3, "RdBu"))(256),
+                           col_side_colors = col_annotation_abl$Conditions,
+                           col_side_palette = c("Sham" = "grey",
+                                                "Ablated"= "orange"),
+                           hide_colorbar = FALSE,
+                           showticklabels=TRUE,
+                           Rowv = FALSE,
+                           olv = TRUE,
+                           plot_method = "plotly",
+                           scale = "column",
+                           key.title = "Expression by\nColumn",
+                           grid_color = "white",
+                           grid_width = 0.00001,
+                           heatmap_layers = theme(axis.line=element_blank()))
+      })
   })
   
-
+  
   
   output$uninjured_net = renderVisNetwork({
     visNetwork::visIgraph(unj) |>
@@ -982,17 +1001,6 @@ output$amputated_net = renderVisNetwork({
       visInteraction(navigationButtons = TRUE) |>
       visNetwork::visLayout(randomSeed = 123456) |>
       visEvents(select = "function(nodes) {Shiny.onInputChange('current_node_id', nodes.nodes);;}")
-    # l <- layout_with_fr(unj)
-    # plot.igraph(unj,edge.color="green",layout=l,vertex.color = "white",vertex.size=8,
-    #             mark.groups = groups_id,
-    #             mark.col = group_color_fill,
-    #             mark.border = group_color)
-    # 
-    # 
-    # legend('topright', legend = names(groups_id),
-    #        col = group_color,
-    #        pch = 15, bty = "n",  pt.cex = 1.5, cex = 0.8,
-    #        text.col = "black", horiz = FALSE)
   })
   
   output$goTable_unj <- renderDataTable({
@@ -1012,28 +1020,40 @@ output$amputated_net = renderVisNetwork({
   
   output$genes_go_unj <- renderValueBox(valueBox(value = tags$p(enrich_go_bo_df %>% group_by(Group) %>% filter(Group == "Uninjured") %>% filter(ID %in% vertex_attr(unj)$name[vertex_attr(unj)$name == input$current_node_id]) %>% pull(geneID) %>% gsub(pattern = "/",replacement=","),style = "font-size: 35%;", style ="color : black"), color="green", subtitle =paste0("Genes Involved in the ",input$current_node_id)))
   
+  # col_annotation_unj$cols <- case_when(col_annotation_unj$Conditions == "Uninjured" ~ myCol_3[2],
+  #                                 col_annotation_unj$Conditions == "Sham" ~ myCol[3])
+  # col_annotation_unj$cols <- case_when(col_annotation_unj$Conditions == "Uninjured" ~ 0,
+  #                                      col_annotation_unj$Conditions == "Sham" ~ 1)
+  # 
   observeEvent(input$current_node_id, {
     genes_unj <- enrich_go_bo_df %>% group_by(Group) %>% filter(Group == "Uninjured") %>% filter(ID %in% vertex_attr(unj)$name[vertex_attr(unj)$name == input$current_node_id]) %>% pull(geneID) %>% gsub(pattern = "/",replacement=",")  %>% strsplit(split = ",") %>% unlist()
-    #names(unj_counts)
     unj_counts2 <- as.data.frame(unj_counts[,c(rownames(s4c %>% filter(Condition %in% c("Uninjured","Sham"))),"MGI_Symbol")])
     unj_counts_genes <- unj_counts2 %>% filter(MGI_Symbol %in% genes_unj) %>% distinct(MGI_Symbol,.keep_all = TRUE)
-    unj_mat <- as.matrix(unj_counts_genes[,-c(length(unj_counts_genes))])
+    unj_mat <- as.data.frame(unj_counts_genes[,-c(length(unj_counts_genes))])
     rownames(unj_mat) <- unj_counts_genes$MGI_Symbol
+    
     col_annotation_unj <- data.frame("Conditions" = s4c |> filter(rownames(s4c) %in% colnames(unj_mat)) |> pull(Condition))
-    col_annotation_unj <- HeatmapAnnotation(df = col_annotation_unj,col = list(Conditions = c("Uninjured" = "green",
-                                                                                          "Sham" = "grey")))
     
-    #Uninjured
-    ht_unj <- Heatmap(matrix = unj_mat,na_col = "black",cluster_columns = TRUE,cluster_rows = TRUE,name="Raw-counts",top_annotation = col_annotation_unj)
-    ht_unj <- draw(ht_unj)
-    InteractiveComplexHeatmapWidget(input, output, session, ht_unj, output_id = "unjhm")
-    #htShiny(ht_list = ht_unj)
-    
-    })
+    output$unjhm <- renderPlotly({
+      heatmaply::heatmaply(x=unj_mat,
+                           colors = colorRampPalette(brewer.pal(3, "RdBu"))(256),
+                           col_side_colors = col_annotation_unj$Conditions,
+                           col_side_palette = c("Sham" = "grey",
+                                                "Uninjured"= "green"),
+                           hide_colorbar = FALSE,
+                           showticklabels=TRUE,
+                           Rowv = FALSE,
+                           olv = TRUE,
+                           plot_method = "plotly",
+                           scale = "column",
+                           key.title = "Expression by\nColumn",
+                           grid_color = "white",
+                           grid_width = 0.00001,
+                           heatmap_layers = theme(axis.line=element_blank()))
+      })
+  })
   
 
-  
-  
   output$heartcore_net = renderVisNetwork({
     visNetwork::visIgraph(core) |>
       visOptions(selectedBy = "Clusters") |>
@@ -1041,7 +1061,7 @@ output$amputated_net = renderVisNetwork({
       #visNetwork::visLayout(randomSeed = 123456) |> 
       #visEvents(select = "function(nodes) {Shiny.onInputChange('current_node_id', nodes.nodes);;}")
       visEvents(select = "function(nodes) {Shiny.onInputChange('current_node_id', nodes.nodes);;}")
-    })
+  })
   
   output$goTable_core <- renderDataTable({
     core_reg %>%
@@ -1065,25 +1085,34 @@ output$amputated_net = renderVisNetwork({
     #names(core_counts)
     core_counts2 <- as.data.frame(core_counts[,c(rownames(s4c %>% filter(Condition %in% c("Uninjured","Sham","Cryoinjury","Ablated","Amputation"))),"MGI_Symbol")])
     core_counts_genes <- core_counts2 %>% filter(MGI_Symbol %in% genes_core) %>% distinct(MGI_Symbol,.keep_all = TRUE)
-    core_mat <- as.matrix(core_counts_genes[,-c(length(core_counts_genes))])
+    core_mat <- as.data.frame(core_counts_genes[,-c(length(core_counts_genes))])
     rownames(core_mat) <- core_counts_genes$MGI_Symbol
-    col_annotation_core <- data.frame("Conditions" = s4c |> filter(rownames(s4c) %in% colnames(core_mat)) |> pull(Condition))
-    col_annotation_core <- HeatmapAnnotation(df = col_annotation_core,col = list(Conditions = c("Uninjured" = "green",
-                                                                                              "Sham" = "grey",
-                                                                                              "Ablated" = "orange",
-                                                                                              "Amputation" = "magenta",
-                                                                                              "Cryoinjury" = "blue")))
-    #Core
-    ht_core <- Heatmap(matrix = core_mat,na_col = "black",cluster_columns = TRUE,cluster_rows = TRUE,name="Raw-counts",top_annotation = col_annotation_core)
-    ht_core <- draw(ht_core)
-    InteractiveComplexHeatmapWidget(input, output, session, ht_core, output_id = "hchm" )
-    #ht_global_opt(RESET = TRUE)
-    #htShiny(session,ht_list = ht_core,heatmap_id = "hcht")
     
+    col_annotation_core <- data.frame("Conditions" = s4c |> filter(rownames(s4c) %in% colnames(core_mat)) |> pull(Condition))
+    
+    output$hchm <- renderPlotly({
+      heatmaply::heatmaply(x=core_mat,
+                           colors = colorRampPalette(brewer.pal(3, "RdBu"))(256),
+                           col_side_colors = col_annotation_core$Conditions,
+                           col_side_palette = c("Sham" = "grey",
+                                                "Ablated"= "orange",
+                                                "Amputation" = "magenta",
+                                                "Uninjured" = "green",
+                                                "Cryoinjury" = "blue"),
+                           hide_colorbar = FALSE,
+                           showticklabels=TRUE,
+                           Rowv = FALSE,
+                           olv = TRUE,
+                           plot_method = "plotly",
+                           scale = "column",
+                           key.title = "Expression by\nColumn",
+                           grid_color = "white",
+                           grid_width = 0.00001,
+                           heatmap_layers = theme(axis.line=element_blank()))
+      })
   })
   
   
-
   
   #enrich_go_bo_df %>% group_by(ID) %>% filter(ID %in% vertex_attr(core)$name[vertex_attr(core)$name == input$current_node_id]) %>% pull(Genes) %>% strsplit(split = ",") %>% unlist()
   # # 
@@ -1099,5 +1128,4 @@ output$amputated_net = renderVisNetwork({
   # 
   
 }
-
-shinyApp(ui = ui, server = server) 
+shinyApp(ui = ui, server = server)
