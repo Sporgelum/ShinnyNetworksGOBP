@@ -17,18 +17,18 @@ Results combining the genes and the processes enriched when studying the speicif
 
 
 **The workflow implemented in the meta-analysis for this project.**
-![Workflow](WorkflowColor2.png)
+![Workflow](Figure1_corrected_Shape_and_Index_v4.png)
 
 **The DEG (differentially expressed genes involved for each comparison when we look at the volcano plot. The DEGs for each comparison are compared all together to find which are the specific genes to each.**
-*add fig2*
+![Workflow](Figure2_without_core _volcano_plot.png)
 
 **With the specific genes for each comparison when compared all together are used for an Over Representation Analysis (ORA) using GO:BP. With these GO:BP terms we imported them into Cytoscape. Further clustering and wordcloud tag were added using tools available in the Cytoscape environment.**
 
 **There are for eachc comparison a specific network of GO:BP's**
-
+![Workflow](Networks_4.5_3_Injuries.png)
 **Further from the previous DEGs, we selected the genes that are shared between the 3 injury models and applied the same workflow as described above obtaining a specific network of GO:BP.**
 *add networks*
-
+![Workflow](Figure4_coreRegeneration_net_v1.png)
 *PS:* **the genes found differentially expressed in *Danio rerio* were converted to the correspondent orthologues in *Mus musculus* and used for the whole analysis in the ORA.**
 
-![Venn](mouse_converted_DESeq2_EntrezgeneID_uniques_Abl_vs_Sham.svg)
+#![Venn](mouse_converted_DESeq2_EntrezgeneID_uniques_Abl_vs_Sham.svg)
