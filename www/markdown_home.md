@@ -15,11 +15,12 @@ Results combining the genes and the processes enriched when studying the speicif
 ### Brief description and graphs.
 
 
-####The workflow implemented in the meta-analysis for this project.
+#### The workflow implemented in the meta-analysis for this project.
 
 ![Workflow](Figure1_corrected_Shape_and_Index_v4.png)
 
 **The DEG (differentially expressed genes involved for each comparison when we look at the volcano plot. The DEGs for each comparison are compared all together to find which are the specific genes to each.**
+
 
 #### Here we find the Volcano plot and the VennDiagram of the comparisons together
 ![Workflow](Figure2_without_core _volcano_plot.png)
