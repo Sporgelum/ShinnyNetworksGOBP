@@ -20,22 +20,7 @@ library("brew")
 library("RColorBrewer")
 # options(repos = BiocManager::repositories())
 #.libPaths("/home/mbotos/R/x86_64-pc-linux-gnu-library/4.2/")
-#install.packages("sodium")
-#install.packages("leaflet",dependencies=TRUE)
-#install_github("r-spatial/sf")
 
-# r_colors <- rgb(t(col2rgb(colors()) / 255))
-# names(r_colors) <- colors()
-
-# textOutput("testloc")
-
-# output$testloc <- renderText({ 
-#   
-#   paste("Last start inserted is", input$GPSs, "\nLast land inserted is", input$GPSl)
-#   
-# 
-#   })
-# 
 
 inactivity <- "function idleTimer() {
 var t = setTimeout(logout, 120000);
@@ -69,30 +54,6 @@ credentials <- data.frame(
   stringsAsFactors = FALSE
 )
 
-#initialiez a dataframe
-# v <- reactiveValues()
-# v$df <- data.frame(FlightNumber = numeric(),
-#                    Date = character(),
-#                    Country = character(),
-#                    Region = character(),
-#                    Hour = numeric(),
-#                    StartPosition = character(),
-#                    Brand = character(),
-#                    Model = character(),
-#                    Height = numeric(), 
-#                    TimeFlying = numeric(),
-#                    LandingPosition = character(),
-#                    Comments = character(),
-#                    GPSs = numeric(),
-#                    GPSl = numeric(),
-#                    stringsAsFactors = TRUE)
-
-
-
-
-
-
-
 
 
 
@@ -106,7 +67,6 @@ credentials <- data.frame(
 ##:%s/^\(.*\)$/"\1",/
 #cat NN | tr "\n" " "
 #excel to paste and make the final command
-#
 abl <- read_graph(file = "./data/cleaned_unique_go_bp_v2__Ablated_vs_Sham.graphml",
                   format = "graphml")
 
@@ -712,6 +672,10 @@ AA_Clusters <- lapply(seq_along(vertex_attr(core)$AA),function(n) {
 vertex_attr(core)$Clusters <- unlist(AA_Clusters)
 
 
+###############################
+#       Load counts           #
+###############################
+
 unj_counts <- read.table(file = "./data/Uninjured_vs_Sham_mouse_enriched_all_clean.txt",
                          header = TRUE,
                          sep = "\t")
@@ -756,7 +720,9 @@ core_reg <- read.table(file = "./data/heart_regeneration_core_mm_fil_cleaned_Abl
 
 
 
-
+#########################
+#       Define UI       #
+#########################
 
 ui <- secure_app(head_auth = tags$script(inactivity),
                  dashboardPage(skin = "purple",
@@ -764,10 +730,8 @@ ui <- secure_app(head_auth = tags$script(inactivity),
                                dashboardSidebar(width = 300,
                                                 sidebarMenu(
                                                   menuItem("Home",tabName = "home",icon = icon("home")),
-                                                  #menuItem("Dashboard",tabName = "dashboard",icon = icon("apple",lib = "glyphicon")),
                                                   menuItem("Resection vs Sham",tabName = "amputated", icon = icon("scissors",lib = "glyphicon")),#,icon = icon("calendar",lib = "glyphicon")),
                                                   menuItem("Ablation vs Sham",tabName = "ablated",icon = icon("tag",lib = "glyphicon")),
-                                                  #menuItem("Cryoiunjury vs Sham",tabName = "cryoinjured",icon = icon("map-marker",lib = "glyphicon")),
                                                   menuItem("Uninjured vs Sham",tabName = "uninjured",icon = icon("ok",lib = "glyphicon")),
                                                   menuItem("Heart core regeneration common genes ",tabName = "heartcore",icon = icon("heart-empty",lib = "glyphicon")),
                                                   menuItem("About",tabName = "about",icon = icon("thumbtack"))
@@ -778,26 +742,7 @@ ui <- secure_app(head_auth = tags$script(inactivity),
                                            #home section and markdown
                                            includeMarkdown("./www/markdown_home.md")),
                                    # #next tab
-                                   # tabItem(tabName = "dashboard",
-                                   #         fluidRow(
-                                   #           column(width = 4,valueBoxOutput(width = 12,outputId = "blue_value_box")),
-                                   #           column(width = 4,valueBoxOutput(width = 12,outputId = "purple_value_box")),
-                                   #           column(width = 4,valueBoxOutput(width = 12,outputId = "red_value_box")),
-                                   #           ),
-                                   #         fluidRow(
-                                   #           column(width = 4,valueBoxOutput(width = 12,outputId = "top_landing_spot1")),
-                                   #           column(width = 4,valueBoxOutput(width = 12,outputId = "top_landing_spot2")),
-                                   #           column(width = 4,valueBoxOutput(width = 12,outputId = "top_landing_spot3")),
-                                   #           ),
-                                   #         fluidRow(
-                                   #           column(width = 4,valueBoxOutput(width = 12,outputId = "top_start_spot1")),
-                                   #           column(width = 4,valueBoxOutput(width = 12,outputId = "top_start_spot2")),
-                                   #           column(width = 4,valueBoxOutput(width = 12,outputId = "top_start_spot3")),
-                                   #           )
-                                   #         ),
-                                   # 
-                                   #next tab
-                                   #widths
+
                                    #https://stackoverflow.com/questions/70689513/how-to-have-shiny-dashboard-box-fill-the-entire-width-of-my-dashbaord
                                    #next tab
                                    tabItem(tabName = "amputated",
@@ -846,8 +791,33 @@ ui <- secure_app(head_auth = tags$script(inactivity),
                                    #next tab
                                    tabItem(tabName = "about",
                                            h2("Created and scractched by: "),
-                                           tags$a("Marius Botos",
-                                                  href = "https://sporgelum.github.io/"))
+                                           fluidRow(
+                                             column(width = 5,
+                                                    imageOutput("marius"),
+                                                    tags$a("Marius Botos",
+                                                           href = "https://sporgelum.github.io/")),
+                                             column(width = 1,imageOutput("img1")),
+                                             column(width = 1,imageOutput("img2")),
+                                             column(width = 1,imageOutput("img3")),
+                                             column(width = 1,imageOutput("img4")),
+                                             column(width = 1,imageOutput("img5")),
+                                             column(width = 1,imageOutput("img6")),
+                                             
+                                                    
+                                             column(width = 4,
+                                                    imageOutput("nadia"),
+                                                    tags$a("Nadia Mercarder",
+                                                           href = "https://www.anatomie.unibe.ch/about_us/management/detail/index_eng.php?id=449")),
+                                             column(width = 4,
+                                                    imageOutput("panos"),
+                                                    tags$a("Panagiotis Chouvardas",
+                                                           href = "https://www.urogenus-research.org/team/chouvardas-panagiotis")),
+                                             column(width = 4,
+                                                    imageOutput("prateek"),
+                                                    tags$a("Prateek Arora",
+                                                           href = "https://www.anatomie.unibe.ch/ueber_uns/team/detail/index_ger.php?id=578"))
+                                               )
+                                           )
                                  )# end tabItems
                                  # Add download button 
                                )# end dashboardBody
@@ -857,6 +827,10 @@ ui <- secure_app(head_auth = tags$script(inactivity),
 myCol <- c("#CC79A7","#0072B2","#E69F00","#999999")
 myCol_3 <- c("#CC79A7","#0072B2","#009E73","#999999")
 
+
+#########################
+#       Define Server   #
+#########################
 
 server <- function(input, output, session) {
   
@@ -869,6 +843,7 @@ server <- function(input, output, session) {
   
   output$amputated_net = renderVisNetwork({
     visNetwork::visIgraph(amp) |>
+      visNodes(color = "#CC6699") |>
       visOptions(selectedBy = "Clusters") |>
       visInteraction(navigationButtons = TRUE) |>
       visNetwork::visLayout(randomSeed = 123456) |>
@@ -910,7 +885,7 @@ server <- function(input, output, session) {
       heatmaply::heatmaply(x=amp_mat,
                            colors = colorRampPalette(brewer.pal(3, "RdBu"))(256),
                            col_side_colors = col_annotation_amp$Conditions,
-                           col_side_palette = c("Sham" = "grey",
+                           col_side_palette = c("Sham" = "#999999",
                                                 "Amputation" = "magenta"),
                            hide_colorbar = FALSE,
                            showticklabels=TRUE,
@@ -928,6 +903,7 @@ server <- function(input, output, session) {
   
   output$ablated_net = renderVisNetwork({
     visNetwork::visIgraph(abl) |>
+      visNodes(color = "#E69F00") |>
       visOptions(selectedBy = "Clusters") |>
       visInteraction(navigationButtons = TRUE) |>
       visNetwork::visLayout(randomSeed = 123456) |> 
@@ -966,7 +942,7 @@ server <- function(input, output, session) {
       heatmaply::heatmaply(x=abl_mat,
                            colors = colorRampPalette(brewer.pal(3, "RdBu"))(256),
                            col_side_colors = col_annotation_abl$Conditions,
-                           col_side_palette = c("Sham" = "grey",
+                           col_side_palette = c("Sham" = "#999999",
                                                 "Ablated"= "orange"),
                            hide_colorbar = FALSE,
                            showticklabels=TRUE,
@@ -985,6 +961,7 @@ server <- function(input, output, session) {
   
   output$uninjured_net = renderVisNetwork({
     visNetwork::visIgraph(unj) |>
+      visNodes(color = "#059E74") |>
       visOptions(selectedBy = "Clusters") |>
       visInteraction(navigationButtons = TRUE) |>
       visNetwork::visLayout(randomSeed = 123456) |>
@@ -1026,8 +1003,8 @@ server <- function(input, output, session) {
       heatmaply::heatmaply(x=unj_mat,
                            colors = colorRampPalette(brewer.pal(3, "RdBu"))(256),
                            col_side_colors = col_annotation_unj$Conditions,
-                           col_side_palette = c("Sham" = "grey",
-                                                "Uninjured"= "green"),
+                           col_side_palette = c("Sham" = "#999999",
+                                                "Uninjured"= "#059E74"),
                            hide_colorbar = FALSE,
                            showticklabels=TRUE,
                            Rowv = FALSE,
@@ -1043,6 +1020,7 @@ server <- function(input, output, session) {
 
   output$heartcore_net = renderVisNetwork({
     visNetwork::visIgraph(core) |>
+      visNodes(color = "#DCD159") |>
       visOptions(selectedBy = "Clusters") |>
       visInteraction(navigationButtons = TRUE) |>
       #visNetwork::visLayout(randomSeed = 123456) |> 
@@ -1081,11 +1059,11 @@ server <- function(input, output, session) {
       heatmaply::heatmaply(x=core_mat,
                            colors = colorRampPalette(brewer.pal(3, "RdBu"))(256),
                            col_side_colors = col_annotation_core$Conditions,
-                           col_side_palette = c("Sham" = "grey",
-                                                "Ablated"= "orange",
-                                                "Amputation" = "magenta",
-                                                "Uninjured" = "green",
-                                                "Cryoinjury" = "blue"),
+                           col_side_palette = c("Sham" = "#999999",
+                                                "Ablated"= "#E69F00",
+                                                "Amputation" = "#CC6699",
+                                                "Uninjured" = "#059E74",
+                                                "Cryoinjury" = "#0673B3"),
                            hide_colorbar = FALSE,
                            showticklabels=TRUE,
                            Rowv = FALSE,
@@ -1096,22 +1074,86 @@ server <- function(input, output, session) {
                            grid_color = "white",
                            grid_width = 0.21)#heatmap_layers = theme(axis.line=element_blank()))
       })
-  })
+    
+   })
+  output$marius <- renderImage({
+    list(src = "./www/kopfMB.jpg",
+         contentType = 'image/jpeg',
+         alt = "This is alternate text",
+         width = 350,
+         height = 350)
+  }, deleteFile = FALSE)
   
+  output$img1 <- renderImage({
+    list(src = "www/clean_logo_rstudio.png",
+           contentType = 'image/png',
+           alt = "This is alternate text",
+           width = 90,
+           height = 90)
+  }, deleteFile = FALSE)
   
+  output$img2 <- renderImage({
+    list(src = "www/Python-logo.png",
+         contentType = 'image/png',
+         alt = "This is alternate text",
+         width = 80,
+         height = 80)
+  }, deleteFile = FALSE)
   
-  #enrich_go_bo_df %>% group_by(ID) %>% filter(ID %in% vertex_attr(core)$name[vertex_attr(core)$name == input$current_node_id]) %>% pull(Genes) %>% strsplit(split = ",") %>% unlist()
-  # # 
-  # output$blue_value_box <- renderValueBox(valueBox(value = paste0("Selected genes: ",vertex_attr(unj)$`EnrichmentMap::Genes`[1]),color="blue",subtitle = "Enrichment Map Genes"))
-  # output$purple_value_box <- renderValueBox(valueBox(value = paste0("Interesting genes: ",unlist(vertex_attr(core)$`EnrichmentMap::Genes`[1])) ,color="purple",subtitle = "Enrichment Map Genes"))
-  # # output$red_value_box <- renderValueBox(valueBox(value = paste0("Sad flights: ",v$df %>% dplyr::filter(Feeling == "Sad") %>% dplyr::count()),color = "red",subtitle = "Sad"))
-  # # output$top_start_spot1 <- renderValueBox(valueBox(value = paste0("Start: ",v$df %>% dplyr::count(StartPosition,sort = TRUE) %>% slice(1) %>% pull(StartPosition)),color = "orange",subtitle = "Top-1"))
-  # # output$top_start_spot2 <- renderValueBox(valueBox(value = paste0("Start: ",v$df %>% dplyr::count(StartPosition,sort = TRUE) %>% slice(2) %>% pull(StartPosition)),color = "lime",subtitle = "Top-2"))
-  # # output$top_start_spot3 <- renderValueBox(valueBox(value = paste0("Start: ",v$df %>% dplyr::count(StartPosition,sort = TRUE) %>% slice(3) %>% pull(StartPosition)),color = "olive",subtitle = "Top-3"))
-  # # output$top_landing_spot1 <- renderValueBox(valueBox(value = paste0("Landing: ",v$df %>% dplyr::count(LandingPosition,sort = TRUE) %>% slice(1) %>% pull(LandingPosition)),color = "orange",subtitle = "Top-1"))
-  # # output$top_landing_spot2 <- renderValueBox(valueBox(value = paste0("Landing: ",v$df %>% dplyr::count(LandingPosition,sort = TRUE) %>% slice(2) %>% pull(LandingPosition)),color = "lime",subtitle = "Top-2"))
-  # # output$top_landing_spot3 <- renderValueBox(valueBox(value = paste0("Landing: ",v$df %>% dplyr::count(LandingPosition,sort = TRUE) %>% slice(3) %>% pull(LandingPosition)),color = "olive",subtitle = "Top-3"))
-  # 
+  output$img3 <- renderImage({
+    list(src = "www/linux-logo.jpg",
+         contentType = 'image/jpeg',
+         alt = "This is alternate text",
+         width = 80,
+         height = 80)
+  }, deleteFile = FALSE)  
+  output$img4 <- renderImage({
+    list(src = "www/cytoscape-logo.png",
+         contentType = 'image/jpeg',
+         alt = "This is alternate text",
+         width = 130,
+         height = 80)
+  }, deleteFile = FALSE)  
+  output$img5 <- renderImage({
+    list(src = "www/adobe-logo.png",
+         contentType = 'image/jpeg',
+         alt = "This is alternate text",
+         width = 80,
+         height = 80)
+  }, deleteFile = FALSE)
   
+  output$img6 <- renderImage({
+    list(src = "www/write-logo.png",
+         contentType = 'image/jpeg',
+         alt = "This is alternate text",
+         width = 80,
+         height = 80)
+  }, deleteFile = FALSE)
+  
+  output$nadia <- renderImage({
+    list(src = "www/kopfNM.jpg",
+         contentType = 'image/jpeg',
+         alt = "This is alternate text",
+         width = 300,
+         height = 300)
+  }, deleteFile = FALSE)
+  
+  output$panos <- renderImage({
+    list(src ="www/kopfPC.jpg",
+         contentType = 'image/jpeg',
+         alt = "This is alternate text",
+         width = 300,
+         height = 300)
+  }, deleteFile = FALSE)
+  
+  output$prateek <- renderImage({
+    list(src = "www/kopfPA.jpg",
+         contentType = 'image/jpeg',
+         alt = "This is alternate text",
+         width = 300,
+         height = 300)
+  }, deleteFile = FALSE)
+  
+
 }
 shinyApp(ui = ui, server = server)

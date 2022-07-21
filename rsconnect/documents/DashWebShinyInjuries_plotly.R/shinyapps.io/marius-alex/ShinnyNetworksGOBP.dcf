@@ -5,9 +5,9 @@ account: marius-alex
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 6669648
-bundleId: 6118793
+bundleId: 6118806
 url: https://marius-alex.shinyapps.io/ShinnyNetworksGOBP/
-when: 1658395783.06207
-lastSyncTime: 1658395783.06208
+when: 1658395928.41074
+lastSyncTime: 1658395928.41075
 asMultiple: FALSE
 asStatic: FALSE
