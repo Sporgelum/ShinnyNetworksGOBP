@@ -676,7 +676,6 @@ vertex_attr(core)$Clusters <- unlist(AA_Clusters)
 ###############################
 #       Load counts           #
 ###############################
-#setwd("/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/RShinyCode/ShinnyNetworksGOBP/")
 
 unj_counts <- read.table(file = "./data/cleaned_unique_go_bp_v2__Uninjured_vs_Sham_normalized_counts_expression_symbol_and_condition_enmap.txt",header = TRUE,sep = "\t")
 
@@ -882,7 +881,7 @@ server <- function(input, output, session) {
                            key.title = "Expression by\nColumn",
                            grid_color = "white",
                            grid_width = 0.21)
-                           #heatmap_layers = theme(axis.line=element_blank()))
+      #heatmap_layers = theme(axis.line=element_blank()))
     })
   })
   
