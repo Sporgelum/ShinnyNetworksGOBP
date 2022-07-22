@@ -2,7 +2,7 @@ library("sodium")
 library("shinyauthr")
 library("devtools")
 library("shinymanager")
-library("shiny")
+#library("shiny")
 library("DT")
 #library("leaflet")
 library("dplyr")
@@ -10,7 +10,8 @@ library("fontawesome")
 library("shinydashboard")
 library("shinycssloaders")
 library("igraph")
-library("shiny")
+library("markdown")
+library("rmarkdown")
 library("dplyr")
 library("ggplot2")
 library("visNetwork")
@@ -804,15 +805,15 @@ ui <- secure_app(head_auth = tags$script(inactivity),
                                              column(width = 1,imageOutput("img6")),
                                              
                                                     
-                                             column(width = 4,
+                                             column(width = 2,
                                                     imageOutput("nadia"),
                                                     tags$a("Nadia Mercarder",
                                                            href = "https://www.anatomie.unibe.ch/about_us/management/detail/index_eng.php?id=449")),
-                                             column(width = 4,
+                                             column(width = 2,
                                                     imageOutput("panos"),
                                                     tags$a("Panagiotis Chouvardas",
                                                            href = "https://www.urogenus-research.org/team/chouvardas-panagiotis")),
-                                             column(width = 4,
+                                             column(width = 2,
                                                     imageOutput("prateek"),
                                                     tags$a("Prateek Arora",
                                                            href = "https://www.anatomie.unibe.ch/ueber_uns/team/detail/index_ger.php?id=578"))
@@ -1088,70 +1089,70 @@ server <- function(input, output, session) {
     list(src = "www/clean_logo_rstudio.png",
            contentType = 'image/png',
            alt = "This is alternate text",
-           width = 90,
-           height = 90)
+           width = 60,
+           height = 60)
   }, deleteFile = FALSE)
   
   output$img2 <- renderImage({
     list(src = "www/Python-logo.png",
          contentType = 'image/png',
          alt = "This is alternate text",
-         width = 80,
-         height = 80)
+         width = 60,
+         height = 60)
   }, deleteFile = FALSE)
   
   output$img3 <- renderImage({
     list(src = "www/linux-logo.jpg",
          contentType = 'image/jpeg',
          alt = "This is alternate text",
-         width = 80,
-         height = 80)
+         width = 60,
+         height = 60)
   }, deleteFile = FALSE)  
   output$img4 <- renderImage({
     list(src = "www/cytoscape-logo.png",
          contentType = 'image/jpeg',
          alt = "This is alternate text",
-         width = 130,
-         height = 80)
+         width = 100,
+         height = 60)
   }, deleteFile = FALSE)  
   output$img5 <- renderImage({
     list(src = "www/adobe-logo.png",
          contentType = 'image/jpeg',
          alt = "This is alternate text",
-         width = 80,
-         height = 80)
+         width = 60,
+         height = 60)
   }, deleteFile = FALSE)
   
   output$img6 <- renderImage({
     list(src = "www/write-logo.png",
          contentType = 'image/jpeg',
          alt = "This is alternate text",
-         width = 80,
-         height = 80)
+         width = 60,
+         height = 60)
   }, deleteFile = FALSE)
   
   output$nadia <- renderImage({
     list(src = "www/kopfNM.jpg",
          contentType = 'image/jpeg',
          alt = "This is alternate text",
-         width = 300,
-         height = 300)
+         width = 200,
+         height = 200)
   }, deleteFile = FALSE)
   
   output$panos <- renderImage({
     list(src ="www/kopfPC.jpg",
          contentType = 'image/jpeg',
          alt = "This is alternate text",
-         width = 300,
-         height = 300)
+         width = 200,
+         height = 200)
   }, deleteFile = FALSE)
   
   output$prateek <- renderImage({
     list(src = "www/kopfPA.jpg",
          contentType = 'image/jpeg',
          alt = "This is alternate text",
-         width = 300,
-         height = 300)
+         width = 200,
+         height = 200)
   }, deleteFile = FALSE)
   
 
