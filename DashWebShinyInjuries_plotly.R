@@ -676,47 +676,28 @@ vertex_attr(core)$Clusters <- unlist(AA_Clusters)
 ###############################
 #       Load counts           #
 ###############################
+#setwd("/media/marius/Samsung_T5/PhD/Projects/prsa/Outputs/r/Cytoscape/Cleaned_Annotation_Ensembl_v4/ResultsCytoscape/PossibleShiny/RShinyCode/ShinnyNetworksGOBP/")
 
-unj_counts <- read.table(file = "./data/Uninjured_vs_Sham_mouse_enriched_all_clean.txt",
-                         header = TRUE,
-                         sep = "\t")
+unj_counts <- read.table(file = "./data/cleaned_unique_go_bp_v2__Uninjured_vs_Sham_normalized_counts_expression_symbol_and_condition_enmap.txt",header = TRUE,sep = "\t")
 
-abl_counts <- read.table(file = "./data/Ablated__vs_Uninjured_mouse_enriched_all_clean.txt",
-                         header = TRUE,
-                         sep = "\t")
+abl_counts <- read.table(file = "./data/cleaned_unique_go_bp_v2__Ablated_vs_Sham_normalized_counts_expression_symbol_and_condition_enmap.txt",header = TRUE,sep = "\t")
 
-amp_counts <- read.table(file = "./data/Amputation_vs_Sham_mouse_enriched_all_clean.txt",
-                         header = TRUE,
-                         sep = "\t")
+amp_counts <- read.table(file = "./data/cleaned_unique_go_bp_v2__Amputation_vs_Sham_normalized_counts_expression_symbol_and_condition_enmap.txt",header = TRUE,sep = "\t")
 
-cry_counts <- read.table(file = "./data/Cryonjury_vs_Sham_mouse_enriched_all_clean.txt",
-                         header = TRUE,
-                         sep = "\t")
+cry_counts <- read.table(file = "./data/Cryonjury_vs_Sham_mouse_enriched_all_clean.txt",header = TRUE,sep = "\t")
 
-s4c <- read.table(file = "./data/colData_s4c.txt",
-                  header = TRUE,
-                  sep = "\t")
+s4c <- read.table(file = "./data/colData_s4c.txt",header = TRUE,sep = "\t")
 
-sham_counts <- cry_counts[,c(rownames(s4c %>% filter(Condition=="Sham")),"MGI_Symbol")]
+#sham_counts <- cry_counts[,c(rownames(s4c %>% filter(Condition=="Sham")),"MGI_Symbol")]
 
 
 
-core_counts <- cbind(
-  cry_counts[,c(rownames(s4c %>% filter(Condition=="Cryoinjury")),"MGI_Symbol")],
-  amp_counts[,c(rownames(s4c %>% filter(Condition=="Amputation")),"MGI_Symbol")],
-  abl_counts[,c(rownames(s4c %>% filter(Condition=="Ablated")),"MGI_Symbol")],
-  unj_counts[,c(rownames(s4c %>% filter(Condition=="Uninjured")),"MGI_Symbol")],
-  sham_counts)
+core_counts <- read.table("./data/core_selected_counts_148_Table.txt",sep = "\t",header = TRUE)
 
 
-enrich_go_bo_df <- read.table("./data/Mmus_clean_gobp_enrichment_v2_abl_sham.txt",
-                              sep = "\t",
-                              header = TRUE)
+enrich_go_bo_df <- read.table("./data/Mmus_clean_gobp_enrichment_v2_abl_sham.txt",sep = "\t",header = TRUE)
 
-
-core_reg <- read.table(file = "./data/heart_regeneration_core_mm_fil_cleaned_Abl_Sham__gobp.txt",
-                       sep = "\t",
-                       header = TRUE)
+core_reg <- read.table(file = "./data/heart_regeneration_core_mm_fil_cleaned_Abl_Sham__gobp.txt",sep = "\t",header = TRUE)
 
 
 
@@ -796,7 +777,8 @@ ui <- secure_app(head_auth = tags$script(inactivity),
                                              column(width = 5,
                                                     imageOutput("marius"),
                                                     tags$a("Marius Botos",
-                                                           href = "https://sporgelum.github.io/")),
+                                                           href = "https://sporgelum.github.io/"),
+                                                    style='padding-left:40px; padding-right:0px; padding-top:0px; padding-bottom:100px'),
                                              column(width = 1,imageOutput("img1")),
                                              column(width = 1,imageOutput("img2")),
                                              column(width = 1,imageOutput("img3")),
@@ -804,19 +786,22 @@ ui <- secure_app(head_auth = tags$script(inactivity),
                                              column(width = 1,imageOutput("img5")),
                                              column(width = 1,imageOutput("img6")),
                                              
-                                                    
-                                             column(width = 2,
+                                             column(width = 12,
                                                     imageOutput("nadia"),
                                                     tags$a("Nadia Mercarder",
-                                                           href = "https://www.anatomie.unibe.ch/about_us/management/detail/index_eng.php?id=449")),
-                                             column(width = 2,
+                                                           href = "https://www.anatomie.unibe.ch/about_us/management/detail/index_eng.php?id=449"),
+                                                    
+                                                    style='padding-left:40px; padding-right:0px; padding-top:100px; padding-bottom:100px'),
+                                             column(width = 12,
                                                     imageOutput("panos"),
                                                     tags$a("Panagiotis Chouvardas",
-                                                           href = "https://www.urogenus-research.org/team/chouvardas-panagiotis")),
-                                             column(width = 2,
+                                                           href = "https://www.urogenus-research.org/team/chouvardas-panagiotis"),
+                                                    style='padding-left:40px; padding-right:0px; padding-top:100px; padding-bottom:100px'),
+                                             column(width = 12,
                                                     imageOutput("prateek"),
                                                     tags$a("Prateek Arora",
-                                                           href = "https://www.anatomie.unibe.ch/ueber_uns/team/detail/index_ger.php?id=578"))
+                                                           href = "https://www.anatomie.unibe.ch/ueber_uns/team/detail/index_ger.php?id=578"),
+                                                    style='padding-left:40px; padding-right:0px; padding-top:100px; padding-bottom:100px')
                                                )
                                            )
                                  )# end tabItems
@@ -875,10 +860,10 @@ server <- function(input, output, session) {
   
   observeEvent(input$current_node_id, {
     genes_amp <- enrich_go_bo_df %>% group_by(Group) %>% filter(Group == "Amputation") %>% filter(ID %in% vertex_attr(amp)$name[vertex_attr(amp)$name == input$current_node_id]) %>% pull(geneID) %>% gsub(pattern = "/",replacement=",")  %>% strsplit(split = ",") %>% unlist()
-    amp_counts2 <- as.data.frame(amp_counts[,c(rownames(s4c %>% filter(Condition %in% c("Amputation","Sham"))),"MGI_Symbol")])
-    amp_counts_genes <- amp_counts2 %>% filter(MGI_Symbol %in% genes_amp) %>% distinct(MGI_Symbol,.keep_all = TRUE)
+    amp_counts2 <- as.data.frame(amp_counts[,c(rownames(s4c %>% filter(Condition %in% c("Amputation","Sham"))),"Symbols")])
+    amp_counts_genes <- amp_counts2 %>% filter(Symbols %in% genes_amp) %>% distinct(Symbols,.keep_all = TRUE)
     amp_mat <- as.data.frame(amp_counts_genes[,-c(length(amp_counts_genes))])
-    rownames(amp_mat) <- amp_counts_genes$MGI_Symbol
+    rownames(amp_mat) <- amp_counts_genes$Symbols
     
     col_annotation_amp <- data.frame("Conditions" = s4c |> filter(rownames(s4c) %in% colnames(amp_mat)) |> pull(Condition))
     
@@ -932,10 +917,10 @@ server <- function(input, output, session) {
 
   observeEvent(input$current_node_id, {
     genes_abl <- enrich_go_bo_df %>% group_by(Group) %>% filter(Group == "Ablated") %>% filter(ID %in% vertex_attr(abl)$name[vertex_attr(abl)$name == input$current_node_id]) %>% pull(geneID) %>% gsub(pattern = "/",replacement=",")  %>% strsplit(split = ",") %>% unlist()
-    abl_counts2 <- as.data.frame(abl_counts[,c(rownames(s4c %>% filter(Condition %in% c("Ablated","Sham"))),"MGI_Symbol")])
-    abl_counts_genes <- abl_counts2 %>% filter(MGI_Symbol %in% genes_abl) %>% distinct(MGI_Symbol,.keep_all = TRUE)
+    abl_counts2 <- as.data.frame(abl_counts[,c(rownames(s4c %>% filter(Condition %in% c("Ablated","Sham"))),"Symbols")])
+    abl_counts_genes <- abl_counts2 %>% filter(Symbols %in% genes_abl) %>% distinct(Symbols,.keep_all = TRUE)
     abl_mat <- as.data.frame(abl_counts_genes[,-c(length(abl_counts_genes))])
-    rownames(abl_mat) <- abl_counts_genes$MGI_Symbol
+    rownames(abl_mat) <- abl_counts_genes$Symbols
     
     col_annotation_abl <- data.frame("Conditions" = s4c |> filter(rownames(s4c) %in% colnames(abl_mat)) |> pull(Condition))
     
@@ -993,10 +978,10 @@ server <- function(input, output, session) {
   # 
   observeEvent(input$current_node_id, {
     genes_unj <- enrich_go_bo_df %>% group_by(Group) %>% filter(Group == "Uninjured") %>% filter(ID %in% vertex_attr(unj)$name[vertex_attr(unj)$name == input$current_node_id]) %>% pull(geneID) %>% gsub(pattern = "/",replacement=",")  %>% strsplit(split = ",") %>% unlist()
-    unj_counts2 <- as.data.frame(unj_counts[,c(rownames(s4c %>% filter(Condition %in% c("Uninjured","Sham"))),"MGI_Symbol")])
-    unj_counts_genes <- unj_counts2 %>% filter(MGI_Symbol %in% genes_unj) %>% distinct(MGI_Symbol,.keep_all = TRUE)
+    unj_counts2 <- as.data.frame(unj_counts[,c(rownames(s4c %>% filter(Condition %in% c("Uninjured","Sham"))),"Symbols")])
+    unj_counts_genes <- unj_counts2 %>% filter(Symbols %in% genes_unj) %>% distinct(Symbols,.keep_all = TRUE)
     unj_mat <- as.data.frame(unj_counts_genes[,-c(length(unj_counts_genes))])
-    rownames(unj_mat) <- unj_counts_genes$MGI_Symbol
+    rownames(unj_mat) <- unj_counts_genes$Symbols
     
     col_annotation_unj <- data.frame("Conditions" = s4c |> filter(rownames(s4c) %in% colnames(unj_mat)) |> pull(Condition))
     
@@ -1049,7 +1034,7 @@ server <- function(input, output, session) {
   observeEvent(input$current_node_id, {
     genes_core <- core_reg %>% group_by(ID) %>% filter(ID %in% vertex_attr(core)$name[vertex_attr(core)$name == input$current_node_id]) %>% pull(Genes) %>% strsplit(split = ",") %>% unlist()
     #names(core_counts)
-    core_counts2 <- as.data.frame(core_counts[,c(rownames(s4c %>% filter(Condition %in% c("Uninjured","Sham","Cryoinjury","Ablated","Amputation"))),"MGI_Symbol")])
+    core_counts2 <- as.data.frame(core_counts[,c(rownames(s4c %>% filter(Condition %in% c("Sham","Cryoinjury","Ablated","Amputation"))),"MGI_Symbol")])
     core_counts_genes <- core_counts2 %>% filter(MGI_Symbol %in% genes_core) %>% distinct(MGI_Symbol,.keep_all = TRUE)
     core_mat <- as.data.frame(core_counts_genes[,-c(length(core_counts_genes))])
     rownames(core_mat) <- core_counts_genes$MGI_Symbol
@@ -1063,7 +1048,6 @@ server <- function(input, output, session) {
                            col_side_palette = c("Sham" = "#999999",
                                                 "Ablated"= "#E69F00",
                                                 "Amputation" = "#CC6699",
-                                                "Uninjured" = "#059E74",
                                                 "Cryoinjury" = "#0673B3"),
                            hide_colorbar = FALSE,
                            showticklabels=TRUE,
@@ -1135,24 +1119,24 @@ server <- function(input, output, session) {
     list(src = "www/kopfNM.jpg",
          contentType = 'image/jpeg',
          alt = "This is alternate text",
-         width = 200,
-         height = 200)
+         width = 300,
+         height = 300)
   }, deleteFile = FALSE)
   
   output$panos <- renderImage({
     list(src ="www/kopfPC.jpg",
          contentType = 'image/jpeg',
          alt = "This is alternate text",
-         width = 200,
-         height = 200)
+         width = 300,
+         height = 300)
   }, deleteFile = FALSE)
   
   output$prateek <- renderImage({
     list(src = "www/kopfPA.jpg",
          contentType = 'image/jpeg',
          alt = "This is alternate text",
-         width = 200,
-         height = 200)
+         width = 300,
+         height = 300)
   }, deleteFile = FALSE)
   
 
